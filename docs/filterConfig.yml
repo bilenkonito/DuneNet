@@ -1,4 +1,0 @@
-apiRules:
-- exclude:
-    uidRegex: ^DuneNet\.Editor$
-    type: Namespace

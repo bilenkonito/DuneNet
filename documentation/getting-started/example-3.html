@@ -1,0 +1,372 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Password Authentication | DuneNet </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Password Authentication | DuneNet ">
+    <meta name="generator" content="docfx 2.50.0.0">
+    
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../images/logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="password-authentication">Password Authentication</h1>
+
+<p>One of the simplest methods of deciding which clients are able to connect to the server and which are not, is by using password authentication.<br>This can easily be implemented in DuneNet by using a module.  </p>
+<p>In this example, we will create two new classes that derive from <code>DuneModule</code>: <code>ServerPasswordAuth.cs</code> and <code>ClientPasswordAuth.cs</code>.<br>We will first provide the whole code for the example and then we will explain the important aspects of it.  </p>
+<p><em>Assets/Scripts/Client/Modules/ClientPasswordAuth.cs:</em>  </p>
+<pre><code class="lang-csharp">using System;
+using System.Text;
+using DuneNet.Client;
+using DuneNet.Shared;
+using DuneNet.Shared.Modules;
+using UnityEngine;
+
+namespace Client.Modules
+{
+    public class ClientPasswordAuth : DuneNet.Client.DuneModule
+    {
+        private string _password;
+
+        public ClientPasswordAuth(string password)
+        {
+            _password = password;
+        }
+
+        public void ChangePassword(string newPassword)
+        {
+            _password = newPassword;
+        }
+
+        protected override HandshakeRequest OnSendHandshake(HandshakeRequest previous)
+        {
+            previous.IDToken = Guid.NewGuid().ToString();
+            previous.Secret = Encoding.Unicode.GetBytes(_password);
+
+            return previous;
+        }
+
+        protected override void OnHandshakeSuccessful(DuneConnection conn)
+        {
+            Debug.Log(&quot;Auth successful, setting ourselves ready.&quot;);
+            DuneClient.NetworkController.SetReady();
+        }
+
+        protected override void OnHandshakeError(DuneConnection conn, string error)
+        {
+            Debug.LogError(&quot;Auth error: &quot; + error);
+        }
+    }
+}
+</code></pre><p><em>Assets/Scripts/Server/Modules/ServerPasswordAuth.cs:</em>  </p>
+<pre><code class="lang-csharp">using System;
+using System.Text;
+using DuneNet.Server;
+using DuneNet.Shared.Modules;
+
+namespace Server.Modules
+{
+    public class ServerPasswordAuth : DuneNet.Server.DuneModule
+    {
+        private string _password;
+
+        public ServerPasswordAuth(string password)
+        {
+            _password = password;
+        }
+
+        public void ChangePassword(string newPassword)
+        {
+            _password = newPassword;
+        }
+
+        protected override HandshakeResponse OnRespondHandshake(HandshakeResponse previous, string idToken, byte[] secret)
+        {
+            string clientPassword = Encoding.Unicode.GetString(secret);
+            if (clientPassword == _password)
+            {
+                previous.Allowed = true;
+                previous.AuthenticationToken = Guid.NewGuid().ToString();
+            }
+            else
+            {
+                previous.Allowed = false;
+                previous.Error = &quot;Wrong password&quot;;
+            }
+
+            return previous;
+        }
+    }
+}
+</code></pre><h2 id="clientpasswordauthcs">ClientPasswordAuth.cs</h2>
+<p>This module takes care of generating a random identification token and encoding a password of our choice.<br>First of all, we define a new class that derives from <a href="../../api/DuneNet.Client.DuneModule.html"><code>DuneModule</code></a>:  </p>
+<pre><code class="lang-csharp">public class ClientPasswordAuth : DuneNet.Client.DuneModule
+</code></pre><p>The <a href="../../api/DuneNet.Client.DuneModule.html"><code>DuneModule</code></a> class provides many overridable methods that we can use to extend the functionality of DuneNet beyond what the main controllers provide.<br>In our case, we want to override the  <code>OnSendHandshake(HandshakeRequest previous)</code> method, which is called when the client is expected to make an authentication request. This happens after the client has precariously connected to the server but before the server responds with any kind of game state data.<br>The <code>previous</code> argument of this method is the result from the previous module in the module chain and can be used to chain multiple authentication schemes such as Steam Authentication Ticket validation and password authentication. We might also use this argument to modify our authentication ticket or secret depending on what authentication schemes are currently registered.  </p>
+<pre><code class="lang-csharp">protected override HandshakeRequest OnSendHandshake(HandshakeRequest previous)
+{
+    previous.IDToken = Guid.NewGuid().ToString();
+    previous.Secret = Encoding.Unicode.GetBytes(_password);
+
+    return previous;
+}
+</code></pre><p>Here, we simply override the identification token from the previous module with a new random Guid and we set our authentication secret to a Unicode encoded byte array of our password. You might want to set the authentication token to something meaningful for your system, like a Steam Authentication Ticket if you are using Steam.<br>We then return our modified <code>HandshakeRequest</code> object for the next module to process. If no additional modules are registered, the <code>HandshakeRequest</code> object will directly be handled by DuneNet.<br>Please, do note that the <code>previous</code> argument cannot and will never be null, so null checking it is redundant and unnecessary.</p>
+<pre><code class="lang-csharp">protected override void OnHandshakeSuccessful(DuneConnection conn)
+{
+    Debug.Log(&quot;Auth successful, setting ourselves ready.&quot;);
+    DuneClient.NetworkController.SetReady();
+}
+
+protected override void OnHandshakeError(DuneConnection conn, string error)
+{
+    Debug.LogError(&quot;Auth error: &quot; + error);
+}
+</code></pre><p>As with the previous example, we also take the opportunity to set our connection ready once the server has authenticated the client.<br>In this case, however, we go a step forward and override the <code>OnHandshakeError(DuneConnection conn, string error)</code> method in order to print a message to the console when our authentication request is rejected by the server. In this example, the server would reject our authentication request if the password we provided does not match the one being evaluated by the server.  </p>
+<h2 id="serverpasswordauthcs">ServerPasswordAuth.cs</h2>
+<p>This module takes care of authenticating new clients by checking that the provided password matches the one we defined on the server.<br>First of all, we define a new class that derives from <a href="../../api/DuneNet.Server.DuneModule.html"><code>DuneModule</code></a>:  </p>
+<pre><code class="lang-csharp">public class ServerPasswordAuth : DuneNet.Server.DuneModule
+</code></pre><p>The <a href="../../api/DuneNet.Server.DuneModule.html"><code>DuneModule</code></a> class provides many overridable methods that we can use to extend the functionality of DuneNet beyond what the main controllers provide.<br>In our case, we want to override the  <code>OnRespondHandshake(HandshakeResponse previous, string idToken, byte[] secret)</code> method, which is called when the server is expected to respond to an authentication request. This happens after the client has precariously connected to the server but before the client is able to become ready.<br>The <code>previous</code> argument of this method is the result from the previous module in the module chain and can be used to chain multiple authentication schemes such as Steam Authentication Ticket validation and password authentication.  </p>
+<pre><code class="lang-csharp">protected override HandshakeResponse OnRespondHandshake(HandshakeResponse previous, string idToken, byte[] secret)
+{
+    string clientPassword = Encoding.Unicode.GetString(secret);
+    if (clientPassword == _password)
+    {
+        previous.Allowed = true;
+        previous.AuthenticationToken = Guid.NewGuid().ToString();
+    }
+    else
+    {
+        previous.Allowed = false;
+        previous.Error = &quot;Wrong password&quot;;
+    }
+
+    return previous;
+}
+</code></pre><p>Here, we first decode the password the client provided us with using the same encoding (Unicode).<br>Then, we check that the client&#39;s password matches the server&#39;s password. If this is the case, we set the <code>Allowed</code> property of the <code>previous</code> argument to true, telling the next modules that the client successfully authenticated against the current module. We also set the <code>AuthenticationToken</code> property to a new Guid. You might want to set this property to something that identifies the user in your system, like a SteamID if you are using Steam.<br>If the client did not successfully authenticate, we set it to false and we also set the <code>Error</code> property to a descriptive error that the client will get when it gets kicked out of the server.<br>We then return our modified <code>HandshakeResponse</code> object for the next module to process. If no additional modules are registered, the <code>HandshakeResponse</code> object will directly be handled by DuneNet.</p>
+<h2 id="registering-the-modules">Registering the modules</h2>
+<p>Now that we have created both modules, we need to register them with DuneNet. This easily accomplished by using the <code>DunneClient.Use()</code> and <code>DuneServer.Use()</code> methods. Please, do note that only one instance of each module type can be registered at the same time.  </p>
+<p>For this example, we can simply modify the <code>ServerInit.cs</code> and <code>ClientInit.cs</code> classes from our <a href="example-1.html">last example</a>.</p>
+<p><em>Assets/Scripts/Server/ServerInit.cs:</em>  </p>
+<pre><code class="lang-csharp">using DuneNet.Server;
+using UnityEngine;
+using UnityEngine.Networking;
+
+namespace Server
+{
+    public class ServerInit : DuneNet.Server.DuneMonoBehaviour
+    {
+        protected override void OnAwake()
+        {
+            DuneServer.Use(new ServerGreeter());
+            DuneServer.Use(new ServerPasswordAuth(&quot;123456&quot;));
+
+            DuneServer.NetworkController.Init(new GlobalConfig
+            {
+                MaxHosts = 20,
+                MaxNetSimulatorTimeout = 12000,
+                MaxPacketSize = 2000,
+                MaxTimerTimeout = 12000,
+                MinNetSimulatorTimeout = 1,
+                ReactorMaximumReceivedMessages = 8092,
+                ReactorMaximumSentMessages = 8092,
+                ReactorModel = ReactorModel.SelectReactor,
+                ThreadAwakeTimeout = 1,
+                ThreadPoolSize = 1
+            }, new ConnectionConfig
+            {
+                AckDelay = 33,
+                AcksType = ConnectionAcksType.Acks32,
+                AllCostTimeout = 20,
+                BandwidthPeakFactor = 2,
+                ConnectTimeout = 2000,
+                DisconnectTimeout = 2000,
+                FragmentSize = 500,
+                InitialBandwidth = 0,
+                MaxCombinedReliableMessageCount = 10,
+                MaxCombinedReliableMessageSize = 100,
+                MaxConnectionAttempt = 10,
+                MaxSentMessageQueueSize = 896,
+                MinUpdateTimeout = 10,
+                NetworkDropThreshold = 5,
+                OverflowDropThreshold = 5,
+                PacketSize = 1440,
+                PingTimeout = 500,
+                ReducedPingTimeout = 100,
+                ResendTimeout = 1200,
+                SendDelay = 0,
+                SSLCAFilePath = &quot;&quot;,
+                SSLCertFilePath = &quot;&quot;,
+                SSLPrivateKeyFilePath = &quot;&quot;,
+                UdpSocketReceiveBufferMaxSize = 0,
+                UsePlatformSpecificProtocols = false,
+                WebSocketReceiveBufferMaxSize = 0
+            }, 20);
+
+            if (!DuneServer.NetworkController.Listen(&quot;127.0.0.1&quot;, 7000))
+            {
+                Debug.LogError(&quot;Error initializing network.&quot;);
+            }
+        }
+    }
+}  
+</code></pre><p><em>Assets/Scripts/Client/ClientInit.cs:</em>  </p>
+<pre><code class="lang-csharp">using DuneNet.Client;
+using UnityEngine;
+using UnityEngine.Networking;
+
+namespace Client
+{
+    public class ClientInit : DuneNet.Client.DuneMonoBehaviour
+    {
+        protected override void OnAwake()
+        {
+            DuneClient.Use(new ClientGreeter());
+            DuneClient.Use(new ClientPasswordAuth(&quot;123456&quot;));
+
+            DuneClient.NetworkController.Init(new GlobalConfig
+            {
+                MaxHosts = 1,
+                MaxNetSimulatorTimeout = 12000,
+                MaxPacketSize = 2000,
+                MaxTimerTimeout = 12000,
+                MinNetSimulatorTimeout = 1,
+                ReactorMaximumReceivedMessages = 8092,
+                ReactorMaximumSentMessages = 8092,
+                ReactorModel = ReactorModel.SelectReactor,
+                ThreadAwakeTimeout = 1,
+                ThreadPoolSize = 1
+            }, new ConnectionConfig
+            {
+                AckDelay = 33,
+                AcksType = ConnectionAcksType.Acks32,
+                AllCostTimeout = 20,
+                BandwidthPeakFactor = 2,
+                ConnectTimeout = 2000,
+                DisconnectTimeout = 2000,
+                FragmentSize = 500,
+                InitialBandwidth = 0,
+                MaxCombinedReliableMessageCount = 10,
+                MaxCombinedReliableMessageSize = 100,
+                MaxConnectionAttempt = 10,
+                MaxSentMessageQueueSize = 896,
+                MinUpdateTimeout = 10,
+                NetworkDropThreshold = 5,
+                OverflowDropThreshold = 5,
+                PacketSize = 1440,
+                PingTimeout = 500,
+                ReducedPingTimeout = 100,
+                ResendTimeout = 1200,
+                SendDelay = 0,
+                SSLCAFilePath = &quot;&quot;,
+                SSLCertFilePath = &quot;&quot;,
+                SSLPrivateKeyFilePath = &quot;&quot;,
+                UdpSocketReceiveBufferMaxSize = 0,
+                UsePlatformSpecificProtocols = false,
+                WebSocketReceiveBufferMaxSize = 0
+            }, 20);
+
+            if (!DuneClient.NetworkController.Connect(&quot;127.0.0.1&quot;, 7000))
+            {
+                Debug.LogError(&quot;Error initializing network.&quot;);
+            }
+        }
+    }
+}
+</code></pre><p>You can try changing the password on the client and reconnecting multiple times to test that the password authentication is working properly. You might do so like this:</p>
+<pre><code class="lang-csharp">DuneClient.NetworkController.Disconnect();
+((ClientPasswordAuth) DuneClient.GetModule&lt;ClientPasswordAuth&gt;())?.ChangePassword(&quot;abcdef&quot;);
+DuneClient.NetworkController.Connect(&quot;127.0.0.1&quot;, 7000);
+</code></pre><h2 id="whats-next">What&#39;s next?</h2>
+<p>In the <a href="example-4.html">next example</a>, we will create our first entity and we will learn how to synchronize movement and arbitrary data.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span class="footer-text">Copyright © 2018 Dune Interactive.
+          </span></div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

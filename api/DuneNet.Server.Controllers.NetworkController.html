@@ -1,0 +1,807 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class NetworkController
+   | DuneNet </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class NetworkController
+   | DuneNet ">
+    <meta name="generator" content="docfx 2.50.0.0">
+    
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="DuneNet.Server.Controllers.NetworkController">
+  
+  
+  <h1 id="DuneNet_Server_Controllers_NetworkController" data-uid="DuneNet.Server.Controllers.NetworkController" class="text-break">Class NetworkController
+  </h1>
+  <div class="markdown level0 summary"><p>A Network Controller with extra functionality for the server.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">NetworkController</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="DuneNet.Server.Controllers.html">DuneNet.Server.Controllers</a></h6>
+  <h6><strong>Assembly</strong>: DuneNet.Server.dll</h6>
+  <h5 id="DuneNet_Server_Controllers_NetworkController_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class NetworkController</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="DuneNet_Server_Controllers_NetworkController_AllowLocalReadiness_" data-uid="DuneNet.Server.Controllers.NetworkController.AllowLocalReadiness*"></a>
+  <h4 id="DuneNet_Server_Controllers_NetworkController_AllowLocalReadiness_DuneNet_Shared_DuneConnection_" data-uid="DuneNet.Server.Controllers.NetworkController.AllowLocalReadiness(DuneNet.Shared.DuneConnection)">AllowLocalReadiness(DuneConnection)</h4>
+  <div class="markdown level1 summary"><p>Allows the provided connection to control its own readiness.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AllowLocalReadiness(DuneConnection conn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DuneNet.Shared.DuneConnection.html">DuneConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>The connection to allow local readiness control on.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="DuneNet_Server_Controllers_NetworkController_AllowLocalReadiness_DuneNet_Shared_DuneConnection__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This is useful to allow clients to set theirselves ready and unready, for example, to indicate the loading state of a scene change.</p>
+</div>
+  
+  
+  <a id="DuneNet_Server_Controllers_NetworkController_Disconnect_" data-uid="DuneNet.Server.Controllers.NetworkController.Disconnect*"></a>
+  <h4 id="DuneNet_Server_Controllers_NetworkController_Disconnect" data-uid="DuneNet.Server.Controllers.NetworkController.Disconnect">Disconnect()</h4>
+  <div class="markdown level1 summary"><p>Stops listening.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Disconnect()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if the Network Controller was able to stop listening, 
+False otherwise (for example, if the server was not listening).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DuneNet_Server_Controllers_NetworkController_Dispose_" data-uid="DuneNet.Server.Controllers.NetworkController.Dispose*"></a>
+  <h4 id="DuneNet_Server_Controllers_NetworkController_Dispose" data-uid="DuneNet.Server.Controllers.NetworkController.Dispose">Dispose()</h4>
+  <div class="markdown level1 summary"><p>Disposes the Network Controller and frees any resources internally used by it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+  <h5 id="DuneNet_Server_Controllers_NetworkController_Dispose_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>There should be no need to manually call this in most cases as it is already automatically called on application quit.</p>
+</div>
+  
+  
+  <a id="DuneNet_Server_Controllers_NetworkController_ForceServerReadiness_" data-uid="DuneNet.Server.Controllers.NetworkController.ForceServerReadiness*"></a>
+  <h4 id="DuneNet_Server_Controllers_NetworkController_ForceServerReadiness_DuneNet_Shared_DuneConnection_" data-uid="DuneNet.Server.Controllers.NetworkController.ForceServerReadiness(DuneNet.Shared.DuneConnection)">ForceServerReadiness(DuneConnection)</h4>
+  <div class="markdown level1 summary"><p>Prevents the provided connection from controlling its own readiness.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ForceServerReadiness(DuneConnection conn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DuneNet.Shared.DuneConnection.html">DuneConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>The connection to force readiness on.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="DuneNet_Server_Controllers_NetworkController_ForceServerReadiness_DuneNet_Shared_DuneConnection__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This is useful for preventing clients from setting theirselves ready and unready when they are not supposed to.</p>
+</div>
+  
+  
+  <a id="DuneNet_Server_Controllers_NetworkController_ForEachConnection_" data-uid="DuneNet.Server.Controllers.NetworkController.ForEachConnection*"></a>
+  <h4 id="DuneNet_Server_Controllers_NetworkController_ForEachConnection_System_Action_DuneNet_Shared_DuneConnection__" data-uid="DuneNet.Server.Controllers.NetworkController.ForEachConnection(System.Action{DuneNet.Shared.DuneConnection})">ForEachConnection(Action&lt;DuneConnection&gt;)</h4>
+  <div class="markdown level1 summary"><p>Performs the provided action for each valid connection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ForEachConnection(Action&lt;DuneConnection&gt; action)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<a class="xref" href="DuneNet.Shared.DuneConnection.html">DuneConnection</a>&gt;</td>
+        <td><span class="parametername">action</span></td>
+        <td><p>The action to perform for each connection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="DuneNet_Server_Controllers_NetworkController_ForEachConnection_System_Action_DuneNet_Shared_DuneConnection___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method skips the default server connection, which is always equal to null.</p>
+</div>
+  
+  
+  <a id="DuneNet_Server_Controllers_NetworkController_GetConnectionAmount_" data-uid="DuneNet.Server.Controllers.NetworkController.GetConnectionAmount*"></a>
+  <h4 id="DuneNet_Server_Controllers_NetworkController_GetConnectionAmount" data-uid="DuneNet.Server.Controllers.NetworkController.GetConnectionAmount">GetConnectionAmount()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetConnectionAmount()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DuneNet_Server_Controllers_NetworkController_GetConnectionFromId_" data-uid="DuneNet.Server.Controllers.NetworkController.GetConnectionFromId*"></a>
+  <h4 id="DuneNet_Server_Controllers_NetworkController_GetConnectionFromId_System_Int32_" data-uid="DuneNet.Server.Controllers.NetworkController.GetConnectionFromId(System.Int32)">GetConnectionFromId(Int32)</h4>
+  <div class="markdown level1 summary"><p>Returns a connection identified by the provided ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DuneConnection GetConnectionFromId(int connectionId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">connectionId</span></td>
+        <td><p>The ID of the connection to retrieve</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DuneNet.Shared.DuneConnection.html">DuneConnection</a></td>
+        <td><p>A DuneConnection instance representing the requested connection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DuneNet_Server_Controllers_NetworkController_GetListenPort_" data-uid="DuneNet.Server.Controllers.NetworkController.GetListenPort*"></a>
+  <h4 id="DuneNet_Server_Controllers_NetworkController_GetListenPort" data-uid="DuneNet.Server.Controllers.NetworkController.GetListenPort">GetListenPort()</h4>
+  <div class="markdown level1 summary"><p>Returns the port the Network Controller is currently listening on.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int GetListenPort()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>The port the server is listening on if the server is listening, -1 otherwise</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DuneNet_Server_Controllers_NetworkController_Init_" data-uid="DuneNet.Server.Controllers.NetworkController.Init*"></a>
+  <h4 id="DuneNet_Server_Controllers_NetworkController_Init_GlobalConfig_ConnectionConfig_System_Int32_System_Single_" data-uid="DuneNet.Server.Controllers.NetworkController.Init(GlobalConfig,ConnectionConfig,System.Int32,System.Single)">Init(GlobalConfig, ConnectionConfig, Int32, Single)</h4>
+  <div class="markdown level1 summary"><p>Initializes the Network Controller.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Init(GlobalConfig globalConfig, ConnectionConfig connectionConfig, int maxConnections = 1, float maxDelay = 0.1F)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">GlobalConfig</span></td>
+        <td><span class="parametername">globalConfig</span></td>
+        <td><p>The global configuration to use for the Network Controller.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">ConnectionConfig</span></td>
+        <td><span class="parametername">connectionConfig</span></td>
+        <td><p>The connection configuration to use for the Network Controller.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">maxConnections</span></td>
+        <td><p>The maximum amount of connections the Network Controller will handle at the same time.
+One connection is required per client so this normally equals the maximum amount of clients the Network Controller will be able to handle at the same time.
+This value should be higher than the amount of expected clients and the maximum amount of clients manually restricted with a DuneModule or by listening for the OnServerConnect event.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td><span class="parametername">maxDelay</span></td>
+        <td><p>The maximum delay before sending packets on connections. Setting this to zero will send messages as soon as they are ready instead of aggregating them.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="DuneNet_Server_Controllers_NetworkController_Init_GlobalConfig_ConnectionConfig_System_Int32_System_Single__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Must be called before using any of the Network Controller&apos;s functionality.</p>
+</div>
+  
+  
+  <a id="DuneNet_Server_Controllers_NetworkController_IsListening_" data-uid="DuneNet.Server.Controllers.NetworkController.IsListening*"></a>
+  <h4 id="DuneNet_Server_Controllers_NetworkController_IsListening" data-uid="DuneNet.Server.Controllers.NetworkController.IsListening">IsListening()</h4>
+  <div class="markdown level1 summary"><p>Returns whether the Network Controller is currently listening.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsListening()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if the Network Controller is listening, False otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DuneNet_Server_Controllers_NetworkController_IsReady_" data-uid="DuneNet.Server.Controllers.NetworkController.IsReady*"></a>
+  <h4 id="DuneNet_Server_Controllers_NetworkController_IsReady_DuneNet_Shared_DuneConnection_" data-uid="DuneNet.Server.Controllers.NetworkController.IsReady(DuneNet.Shared.DuneConnection)">IsReady(DuneConnection)</h4>
+  <div class="markdown level1 summary"><p>Returns whether the provided connection is ready.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsReady(DuneConnection conn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DuneNet.Shared.DuneConnection.html">DuneConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if the provided connection is ready, False otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DuneNet_Server_Controllers_NetworkController_KickConnection_" data-uid="DuneNet.Server.Controllers.NetworkController.KickConnection*"></a>
+  <h4 id="DuneNet_Server_Controllers_NetworkController_KickConnection_NetworkConnection_" data-uid="DuneNet.Server.Controllers.NetworkController.KickConnection(NetworkConnection)">KickConnection(NetworkConnection)</h4>
+  <div class="markdown level1 summary"><p>Kicks a connection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void KickConnection(NetworkConnection conn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">NetworkConnection</span></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>The connection to kick.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="DuneNet_Server_Controllers_NetworkController_KickConnection_NetworkConnection__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This forcefuly disconnects the provided connection after one second. This delay allows for graceful disconnection messages to be sent before the connetion is closed.</p>
+</div>
+  
+  
+  <a id="DuneNet_Server_Controllers_NetworkController_Listen_" data-uid="DuneNet.Server.Controllers.NetworkController.Listen*"></a>
+  <h4 id="DuneNet_Server_Controllers_NetworkController_Listen_System_String_System_Int32_" data-uid="DuneNet.Server.Controllers.NetworkController.Listen(System.String,System.Int32)">Listen(String, Int32)</h4>
+  <div class="markdown level1 summary"><p>Listens for connections on the supplied endpoint.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Listen(string ip, int port)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">ip</span></td>
+        <td><p>The IP Network Controller should listen on.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">port</span></td>
+        <td><p>The port the Network Controller should listen on.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if the Network Controller was able to start listening at the provided endpoint, 
+False otherwise (for example, if the IP is not valid or the endpoint is already in use by another process).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="DuneNet_Server_Controllers_NetworkController_Listen_System_String_System_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>After listening, the network interactions can be hooked into by using a DuneModule or by listening for the following events:
+<ul><li></li><li></li><li></li><li></li><li></li></ul></p>
+</div>
+  
+  
+  <a id="DuneNet_Server_Controllers_NetworkController_RegisterHandler_" data-uid="DuneNet.Server.Controllers.NetworkController.RegisterHandler*"></a>
+  <h4 id="DuneNet_Server_Controllers_NetworkController_RegisterHandler_System_Int16_NetworkMessageDelegate_" data-uid="DuneNet.Server.Controllers.NetworkController.RegisterHandler(System.Int16,NetworkMessageDelegate)">RegisterHandler(Int16, NetworkMessageDelegate)</h4>
+  <div class="markdown level1 summary"><p>Registers a network message handler.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RegisterHandler(short msgType, NetworkMessageDelegate handler)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int16</span></td>
+        <td><span class="parametername">msgType</span></td>
+        <td><p>The type of the message to register. This must be unique for each message type.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">NetworkMessageDelegate</span></td>
+        <td><span class="parametername">handler</span></td>
+        <td><p>The handler that the Network Controller will invoke when a message of this type is received.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DuneNet_Server_Controllers_NetworkController_SendByChannelToReady_" data-uid="DuneNet.Server.Controllers.NetworkController.SendByChannelToReady*"></a>
+  <h4 id="DuneNet_Server_Controllers_NetworkController_SendByChannelToReady_System_Int16_MessageBase_System_Int16_" data-uid="DuneNet.Server.Controllers.NetworkController.SendByChannelToReady(System.Int16,MessageBase,System.Int16)">SendByChannelToReady(Int16, MessageBase, Int16)</h4>
+  <div class="markdown level1 summary"><p>Sends a message to all ready clients using the provided channel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SendByChannelToReady(short msgType, MessageBase msg, short channel)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int16</span></td>
+        <td><span class="parametername">msgType</span></td>
+        <td><p>The type of the message to send.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">MessageBase</span></td>
+        <td><span class="parametername">msg</span></td>
+        <td><p>The message to send.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int16</span></td>
+        <td><span class="parametername">channel</span></td>
+        <td><p>The channel to send the message through.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="DuneNet_Server_Controllers_NetworkController_SendByChannelToReady_System_Int16_MessageBase_System_Int16__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The channel must have been previously been manually registered or be one of the default channels from MessageChannels.</p>
+</div>
+  
+  
+  <a id="DuneNet_Server_Controllers_NetworkController_SendByChannelToReadyWithAuthority_" data-uid="DuneNet.Server.Controllers.NetworkController.SendByChannelToReadyWithAuthority*"></a>
+  <h4 id="DuneNet_Server_Controllers_NetworkController_SendByChannelToReadyWithAuthority_System_Int16_NetworkConnection_DuneNet_Shared_Messages_SharedAuthorityMessage_System_Int16_" data-uid="DuneNet.Server.Controllers.NetworkController.SendByChannelToReadyWithAuthority(System.Int16,NetworkConnection,DuneNet.Shared.Messages.SharedAuthorityMessage,System.Int16)">SendByChannelToReadyWithAuthority(Int16, NetworkConnection, SharedAuthorityMessage, Int16)</h4>
+  <div class="markdown level1 summary"><p>Sends a message to all ready clients using the provided channel. Additionally, it sets the authority of the message to the provided connection before sending it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SendByChannelToReadyWithAuthority(short msgType, NetworkConnection authoritativeConnection, SharedAuthorityMessage msg, short channel)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int16</span></td>
+        <td><span class="parametername">msgType</span></td>
+        <td><p>The type of the message to send.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">NetworkConnection</span></td>
+        <td><span class="parametername">authoritativeConnection</span></td>
+        <td><p>The connection that will have authority over the message.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="DuneNet.Shared.Messages.SharedAuthorityMessage.html">SharedAuthorityMessage</a></td>
+        <td><span class="parametername">msg</span></td>
+        <td><p>The message to send.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int16</span></td>
+        <td><span class="parametername">channel</span></td>
+        <td><p>The channel to send the message through.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="DuneNet_Server_Controllers_NetworkController_SendByChannelToReadyWithAuthority_System_Int16_NetworkConnection_DuneNet_Shared_Messages_SharedAuthorityMessage_System_Int16__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The channel must have been previously been manually registered or be one of the default channels from MessageChannels.
+This method is specially useful for custom messages that deal with authority entities.</p>
+</div>
+  
+  
+  <a id="DuneNet_Server_Controllers_NetworkController_SetNotReady_" data-uid="DuneNet.Server.Controllers.NetworkController.SetNotReady*"></a>
+  <h4 id="DuneNet_Server_Controllers_NetworkController_SetNotReady_DuneNet_Shared_DuneConnection_" data-uid="DuneNet.Server.Controllers.NetworkController.SetNotReady(DuneNet.Shared.DuneConnection)">SetNotReady(DuneConnection)</h4>
+  <div class="markdown level1 summary"><p>Sets the provided connection not ready.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetNotReady(DuneConnection conn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DuneNet.Shared.DuneConnection.html">DuneConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>The connection to set not ready.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="DuneNet_Server_Controllers_NetworkController_SetNotReady_DuneNet_Shared_DuneConnection__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This instructs the receiving clientside Network Controller that it should not be able to receive scene information (useful for changing scenes).
+This method has no effect until the client has been authenticated.</p>
+</div>
+  
+  
+  <a id="DuneNet_Server_Controllers_NetworkController_SetReady_" data-uid="DuneNet.Server.Controllers.NetworkController.SetReady*"></a>
+  <h4 id="DuneNet_Server_Controllers_NetworkController_SetReady_DuneNet_Shared_DuneConnection_" data-uid="DuneNet.Server.Controllers.NetworkController.SetReady(DuneNet.Shared.DuneConnection)">SetReady(DuneConnection)</h4>
+  <div class="markdown level1 summary"><p>Sets the provided connection ready.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetReady(DuneConnection conn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DuneNet.Shared.DuneConnection.html">DuneConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>The connection to set ready.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="DuneNet_Server_Controllers_NetworkController_SetReady_DuneNet_Shared_DuneConnection__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This instructs the receiving clientside Network Controller that it should be able to receive scene information.
+This method has no effect until the client has been authenticated.</p>
+</div>
+  
+  
+  <a id="DuneNet_Server_Controllers_NetworkController_Shutdown_" data-uid="DuneNet.Server.Controllers.NetworkController.Shutdown*"></a>
+  <h4 id="DuneNet_Server_Controllers_NetworkController_Shutdown" data-uid="DuneNet.Server.Controllers.NetworkController.Shutdown">Shutdown()</h4>
+  <div class="markdown level1 summary"><p>Shuts down the Network Controller. Init must be called again to perform further operations with the Network Controller after calling this.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Shutdown()</code></pre>
+  </div>
+  <h5 id="DuneNet_Server_Controllers_NetworkController_Shutdown_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>There should be no need to manually call this in most cases as it is already automatically called on application quit.</p>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span class="footer-text">Copyright © 2018 Dune Interactive.
+          </span></div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

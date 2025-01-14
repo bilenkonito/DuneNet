@@ -1,0 +1,321 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Creating your first Entity | DuneNet </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Creating your first Entity | DuneNet ">
+    <meta name="generator" content="docfx 2.50.0.0">
+    
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../images/logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="creating-your-first-entity">Creating your first Entity</h1>
+
+<h2 id="overview">Overview</h2>
+<p>Entities are the cornerstone of DuneNet, allowing for dynamic objects to be created and destroyed at runtime and be synchronized to all connected and ready clients.<br>In this example, we will create our first entity and have it move around a bit to get used to entity oriented development.<br>Entities are composed of two classes that derive from <a href="../../api/DuneNet.Client.Entities.Entity.html"><code>Client.Entities.Entity</code></a> and <a href="../../api/DuneNet.Server.Entities.Entity.html"><code>Server.Entities.Entity</code></a>, representing the clientside and serverside parts of the entity respectively.</p>
+<p>As with previous examples, we will first provide the whole code for the example and then we will explain the important aspects of it.</p>
+<p><em>Assets/Scripts/Server/Entities/ServerAwesomeSphere.cs:</em>  </p>
+<pre><code class="lang-csharp">using DuneNet.Server;
+using DuneNet.Server.Entities;
+using DuneNet.Shared.Entities;
+using DuneNet.Shared.Enums;
+using UnityEngine;
+
+namespace Server.Entities
+{
+    [EntityReg(&quot;awesome_sphere&quot;, &quot;Server/Entities/awesome_sphere_prefab&quot;, NetworkContext.Server)]
+    public class ServerAwesomeSphere : DuneNet.Server.Entities.Entity
+    {
+        private float _lifeTime;
+
+        protected override void OnEntitySpawned()
+        {
+            _lifeTime = 20f;
+            SetPos(new Vector3(EntId ?? 0, 10, 0));
+            NetworkedPositionAndRotation = true;
+            Debug.Log(name + &quot; just popped into existence and is of type &quot; + EntName + &quot;!&quot;);
+        }
+
+        protected override void OnUpdate()
+        {
+            _lifeTime -= Time.deltaTime;
+
+            if (_lifeTime &gt; 0) return;
+
+            if (EntId.HasValue)
+            {
+                Debug.Log(name + &quot; with id &quot; + (EntId ?? 0) + &quot; has just died :(&quot;);
+            }
+
+            DuneServer.EntityController.DestroyEntity(this);
+        }
+
+        protected override void OnFixedUpdate()
+        {
+            transform.position = new Vector3(transform.position.x, Mathf.Sin(Time.time) * 2.5f, transform.position.z);
+        }
+
+        protected override void OnNetUpdate()
+        {
+            SetNetworkedVar(&quot;lifeTime&quot;, _lifeTime);
+        }
+    }
+}
+</code></pre><p><em>Assets/Scripts/Client/Entities/ClientAwesomeSphere.cs:</em>  </p>
+<pre><code class="lang-csharp">using DuneNet.Client.Entities;
+using DuneNet.Shared.Entities;
+using DuneNet.Shared.Enums;
+using UnityEngine;
+
+namespace Client.Entities
+{
+    [EntityReg(&quot;awesome_sphere&quot;, &quot;Client/Entities/awesome_sphere_prefab&quot;, NetworkContext.Client)]
+    public class ClientAwesomeSphere : DuneNet.Client.Entities.Entity
+    {
+        private float _lifeTime;
+
+        protected override void OnEntitySpawned()
+        {
+            Debug.Log(name + &quot; just popped into existence and is of type &quot; + EntName + &quot;!&quot;);
+
+            GetComponent&lt;MeshRenderer&gt;().material.color = HasAuthority ? new Color(0f, 1f, 0f) : new Color(1f, 0f, 0f);
+        }
+
+        protected override void OnLateUpdate()
+        {
+            Debug.Log(name + &quot; only has &quot; + _lifeTime + &quot; seconds of life :S&quot;);
+        }
+
+        protected override void OnEntityDestroyed()
+        {
+            if (!EntId.HasValue) return;
+            Debug.Log(&quot;Poor entity &quot; + name + &quot; with id &quot; + (EntId ?? 0) + &quot; has died :((((&quot;);
+        }
+
+        protected override void OnSetNetVar(string varName)
+        {
+            switch (varName)
+            {
+                case &quot;lifeTime&quot;:
+                    _lifeTime = GetNetworkedVar&lt;float&gt;(&quot;lifeTime&quot;);
+                    break;
+            }
+        }
+    }
+}
+</code></pre><h2 id="serverawesomespherecs">ServerAwesomeSphere.cs</h2>
+<p>First of all, we define a new class that derives from <a href="../../api/DuneNet.Server.Entities.Entity.html"><code>Entity</code></a>:  </p>
+<pre><code class="lang-csharp">public class ServerAwesomeSphere : DuneNet.Server.Entities.Entity
+</code></pre><p>The <a href="../../api/DuneNet.Server.Entities.Entity.html"><code>Entity</code></a> class provides many overridable methods that we can use to add functionality to our entities.  </p>
+<p>The first method we will override is <code>OnEntitySpawned()</code>. This method is called when the entity is spawned and it is the perfect place to initialize any entity properties and perform any kind of initialization that might be required.</p>
+<pre><code class="lang-csharp">protected override void OnEntitySpawned()
+{
+    _lifeTime = 20f;
+    SetPos(new Vector3(EntId ?? 0, 10, 0));
+    NetworkedPositionAndRotation = true;
+    Debug.Log(name + &quot; just popped into existence and is of type &quot; + EntName + &quot;!&quot;);
+}
+</code></pre><p>In our case, we initialize the <code>_lifeTime</code> property to a sensible value like <code>20f</code> and we set its position to <code>10</code> units above the scene center and as many units to the right as the id of the entity by using the <code>EntId</code> inherited property.<br>We also set the <code>NetworkedPositionAndRotation</code> property to true, which instructs DuneNet to automatically synchronize the movement of the entity to the clients.<br>Finally, we print a nice debug message to the console showing the name of the entity&#39;s GameObject (<code>name</code>) and the registration name of the entity (<code>EntName</code>).  </p>
+<p>In order to make the entity die after a period of time, we will also overwrite the <code>OnUpdate()</code> method.  </p>
+<pre><code class="lang-csharp">protected override void OnUpdate()
+{
+    _lifeTime -= Time.deltaTime;
+
+    if (_lifeTime &gt; 0) return;
+
+    if (EntId.HasValue)
+    {
+        Debug.Log(name + &quot; with id &quot; + (EntId ?? 0) + &quot; has just died :(&quot;);
+    }
+
+    DuneServer.EntityController.DestroyEntity(this);
+}
+</code></pre><p>First, we subtract the time spent rendering the last frame from our <code>_lifeTime</code> counter and then we return if the value is bigger than 0. This means the entity is not ready to die yet (yay!).<br>If the value is equal or smaller than 0, it means than the entity has to die, so we first check that this is indeed a networked entity by making sure <code>EntId</code> has a value and then we print a nice debug message to the console showing the entity&#39;s GameObject name and its ID.<br>Finally, we destroy the entity by calling <code>DuneServer.EntityController.DestroyEntity()</code> with this entity as a argument.  </p>
+<p>Another method we might want to override is <code>OnFixedUpdate()</code>. This method is called every physics tick, so it is perfect to perform any movement operation.  </p>
+<pre><code class="lang-csharp">protected override void OnFixedUpdate()
+{
+    transform.position = new Vector3(transform.position.x, Mathf.Sin(Time.time) * 2.5f, transform.position.z);
+}
+</code></pre><p>We want to make our entity oscillate between <code>2.5f</code> and <code>-2.5f</code> so we modify it&#39;s position&#39;s <code>y</code> position to be the Sinus of the current time and we multiply it by <code>2.5f</code>.  </p>
+<p>Since we want to inform the clients about the entity&#39;s lifetime, we will also synchronize the <code>_lifeTime</code> property by overriding the <code>OnNetUpdate()</code> method and using a Networked Variable.  </p>
+<pre><code class="lang-csharp">protected override void OnNetUpdate()
+{
+    SetNetworkedVar(&quot;lifeTime&quot;, _lifeTime);
+}
+</code></pre><p>The <code>OnNetUpdate()</code> method is called every network tick, so it is the perfect place to set Networked Variables or User Messages (the inverse of Networked Variables).<br>Networked Variables are simply variables that are synchronized from the server to all clients that can observe this entity (ie, entities that are currently spawned on the client).<br>Here, we use the <code>SetNetworkedVar()</code> method to assign the <code>lifeTime</code> Networked Variable to the value of <code>_lifeTime</code> on every network tick.<br>Setting Networked Variables outside of <code>OnNetUpdate()</code>, while possible, is not recommended since the variables will only be networked on every network tick if the value has changed. We recommend using class properties to store the actual value of the variable and then synchronizing that value on the network tick if such thing is necessary (sometimes you might not want to synchronize a Networked Variable on every tick but only when it&#39;s needed).</p>
+<p>Finally, we register the entity with DuneNet by attaching the <code>EntityReg</code> attribute to the class of the entity.  </p>
+<pre><code class="lang-csharp">[EntityReg(&quot;awesome_sphere&quot;, &quot;Server/Entities/awesome_sphere_prefab&quot;, NetworkContext.Server)]
+public class ServerAwesomeSphere : DuneNet.Server.Entities.Entity
+</code></pre><p>The <code>EntityReg</code> attribute takes three arguments in its constructor: the registration name of the entity (this is what we will use to spawn it and must be equal between server and client for the same entity), the relative path to the entity&#39;s prefab starting from <code>Resources/</code> and the context the entity is valid for, either <code>NetworkContext.Server</code> or <code>NetworkContext.Client</code>.  </p>
+<h2 id="clientawesomespherecs">ClientAwesomeSphere.cs</h2>
+<p>First of all, we define a new class that derives from <a href="../../api/DuneNet.Client.Entities.Entity.html"><code>Entity</code></a>:  </p>
+<pre><code class="lang-csharp">public class ClientAwesomeSphere : DuneNet.Client.Entities.Entity
+</code></pre><p>The first method we will override is <code>OnEntitySpawned()</code>. This method is called when the entity is spawned and it is the perfect place to initialize any entity properties and perform any kind of initialization that might be required.</p>
+<pre><code class="lang-csharp">protected override void OnEntitySpawned()
+{
+    Debug.Log(name + &quot; just popped into existence and is of type &quot; + EntName + &quot;!&quot;);
+
+    GetComponent&lt;MeshRenderer&gt;().material.color = HasAuthority ? new Color(0f, 1f, 0f) : new Color(1f, 0f, 0f);
+}
+</code></pre><p>First, we print a debug message to the console showing the entity&#39;s GameObject name and its registration name.<br>After that, we paint the entity&#39;s <code>MeshRenderer</code> green if the client has authority over the entity or red otherwise. More on entity authority later.  </p>
+<p>We want to display the lifetime of the entity so we override the <code>OnLateUpdate()</code> method. While this can also be done on the <code>OnUpdate()</code> method, in this example we want the message to be printed after the current frame has finished rendering for demonstration purposes.  </p>
+<pre><code class="lang-csharp">protected override void OnLateUpdate()
+{
+    Debug.Log(name + &quot; only has &quot; + _lifeTime + &quot; seconds of life :S&quot;);
+}
+</code></pre><p>In this method, we print a simple debug message to show the current lifetime of the entity by using the entity&#39;s GameObject name, as well as the <code>_lifeTime</code> property that we will synchronize down below.  </p>
+<p>We also want to show a nice message when the entity is destroyed so we override the <code>AAA</code> method.  </p>
+<pre><code class="lang-csharp">protected override void OnEntityDestroyed()
+{
+    if (!EntId.HasValue) return;
+    Debug.Log(&quot;Poor entity &quot; + name + &quot; with id &quot; + (EntId ?? 0) + &quot; has died :((((&quot;);
+}
+</code></pre><p>The first thing we do is check if the entity is networked by making sure the <code>EntId</code> inherited property has a value and then we print a nice debug message to the console by using the entity&#39;s GameObject name and its entity ID.  </p>
+<p>As stated before, we want to we want to update the value of the <code>_lifeTime</code> property with the value of the entity&#39;s current lifetime. In order to do this, we must overwrite the <code>OnSetNetVar()</code> method.  </p>
+<pre><code class="lang-csharp">protected override void OnSetNetVar(string varName)
+{
+    switch (varName)
+    {
+        case &quot;lifeTime&quot;:
+            _lifeTime = GetNetworkedVar&lt;float&gt;(varName);
+            break;
+    }
+}
+</code></pre><p>The <code>OnSetNetVar()</code> method is called each time the server updates any of the Networked Variables of the entity and it provides us with the name of the Networked Variable that triggered the call.<br>We can easily use this information to retrieve the Networked Variable&#39;s value by using the <code>GetNetworkedVar&lt;T&gt;()</code> method. This method takes the name of the Networked Variable as argument and its type as generics type. The type of the Networked Variable is known beforehand, since it is the same type as the value we set with <code>SetNetworkedVar()</code>.<br>In this example, we use the value of <code>GetNetworkedVar&lt;T&gt;()</code> to store the value of the <code>lifeTime</code> Networked Variable into the <code>_lifeTime</code> property. We use a switch here since we can expect to check the same variable against multiple values, but feel free to use the conditional structure of your choice.  </p>
+<p>Finally, we register the entity with DuneNet by attaching the <code>EntityReg</code> attribute to the class of the entity.  </p>
+<pre><code class="lang-csharp">[EntityReg(&quot;awesome_sphere&quot;, &quot;Client/Entities/awesome_sphere_prefab&quot;, NetworkContext.Client)]
+public class ClientAwesomeSphere : DuneNet.Client.Entities.Entity
+</code></pre><p>The <code>EntityReg</code> attribute takes three arguments in its constructor: the registration name of the entity (this is what we will use to spawn it and must be equal between server and client for the same entity), the relative path to the entity&#39;s prefab starting from <code>Resources/</code> and the context the entity is valid for, either <code>NetworkContext.Server</code> or <code>NetworkContext.Client</code>.  </p>
+<h2 id="creating-the-entity-prefabs">Creating the entity prefabs</h2>
+<p>An important component of an entity is its prefab.<br>The entity&#39;s prefab is its physical representation in scene and we need two of them per entity, one for the server and one for the client. This allows us to remove unneeded components from each network context (for example, we don&#39;t need a <code>MeshRenderer</code> on the server or a <code>Collider</code> on the client).  </p>
+<p>For this example, we will create two prefabs representing a sphere.</p>
+<h3 id="server-prefab">Server prefab</h3>
+<p>First, we create a simple Sphere GameObject:<br><div style="text-align:center">
+    <img src="../../images/examples/4/1.png">
+</div></p>
+<p>Then we remove the <code>MeshRenderer</code> component from the GameObject since we don&#39;t need it on the server (we generally want to avoid rendering on the server).<br><div style="text-align:center">
+    <img src="../../images/examples/4/2.png">
+</div></p>
+<p>And finally we save the GameObject as a prefab named <code>awesome_sphere_prefab</code> inside the <code>Assets/Resources/Server/Entities/</code> folder.</p>
+<h3 id="client-prefab">Client prefab</h3>
+<p>First, we create a simple Sphere GameObject:<br><div style="text-align:center">
+    <img src="../../images/examples/4/1.png">
+</div></p>
+<p>Then we remove the <code>SphereCollider</code> component from the GameObject since we don&#39;t need it on the client (it is not recommended to have any kind of physics components on the client unless you are attempting to implement your own client prediction).<br><div style="text-align:center">
+    <img src="../../images/examples/4/3.png">
+</div></p>
+<p>And finally we save the GameObject as a prefab named <code>awesome_sphere_prefab</code> inside the <code>Assets/Resources/Client/Entities/</code> folder.</p>
+<h2 id="spawning-the-entity">Spawning the entity</h2>
+<p>Now that we have defined our entity, it is time to spawn it.<br>For our example, we will create a new <a href="../../api/DuneNet.Server.DuneModule.html">DuneModule</a>:  </p>
+<pre><code class="lang-csharp">using DuneNet.Server;
+using DuneNet.Shared;
+
+namespace Server.Modules
+{
+    public class WelcomeEntitySpawner : DuneNet.Server.DuneModule
+    {
+        protected override void OnNetReady(DuneConnection conn)
+        {
+            DuneServer.EntityController.SpawnEntity(&quot;awesome_sphere&quot;, conn);
+        }
+    }
+}
+</code></pre><p>This is a serverside module that will spawn a new <code>awesome_sphere</code> entity every time a client becomes ready.<br>For this, we use the overload of <code>SpawnEntity()</code> that takes a <code>DuneConnection</code> object as argument, as well as the registration name of the entity. This overload will spawn the entity with authority for the connection that we provide as argument.<br>Having authority over an entity means the authoritative connection will be able to set User Messages for it. This ensures that clients can only send information to the server for entities they have authority over. Generally, this is used for capturing player input from a designated player entity but it can also be used in creative ways like we did above.  </p>
+<p>Finally, we just need to register the module we have created as in previous examples.  </p>
+<pre><code class="lang-csharp">DuneServer.Use(new WelcomeEntitySpawner());
+</code></pre><h2 id="whats-next">What&#39;s next?</h2>
+<p>With the knowledge from this example and some digging of the <a href="../../api/DuneNet.Client.Entities.Entity.html"><code>Client.Entities.Entity</code></a>, <a href="../../api/DuneNet.Server.Entities.Entity.html"><code>Server.Entities.Entity</code></a>, <a href="../../api/DuneNet.Client.Controllers.EntityController.html"><code>Client.Controllers.EntityController</code></a> and <a href="../../api/DuneNet.Server.Controllers.EntityController.html"><code>Server.Controllers.EntityController</code></a> classes, you should now be able to give life to your multiplayer games by leveraging the power of entities.<br>In the <a href="example-5.html">next example</a>, we will learn how to use events to effectively trigger global actions on both the server and the client.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span class="footer-text">Copyright © 2018 Dune Interactive.
+          </span></div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

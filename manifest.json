@@ -1,0 +1,1021 @@
+{
+  "homepages": [],
+  "source_base_path": "H:/Work/repositories/dunenet/dunenet/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Client.Controllers.EntityController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Client.Controllers.EntityController.html",
+          "hash": "X1M/I7nbxFf5QLygQhgRNw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Client.Controllers.EventController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Client.Controllers.EventController.html",
+          "hash": "uH+WGda4GO25dAgZCiun4w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Client.Controllers.NetworkController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Client.Controllers.NetworkController.html",
+          "hash": "ipMpLcmpMD1qgtDiEEO0Tw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Client.Controllers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Client.Controllers.html",
+          "hash": "k+nfoIYjbGFCYVYqydCmrg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Client.DuneBehaviour.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Client.DuneBehaviour.html",
+          "hash": "Y+1Fe9M5ebuxTJu+C30ySA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Client.DuneClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Client.DuneClient.html",
+          "hash": "kbuN8xzxSNRfO5Ay0Z2vVQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Client.DuneModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Client.DuneModule.html",
+          "hash": "neBiDkd8+VwPEb2MwZwBtg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Client.DuneMonoBehaviour.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Client.DuneMonoBehaviour.html",
+          "hash": "LuYeZCR5kyUFwEW0daykIg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Client.Entities.Entity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Client.Entities.Entity.html",
+          "hash": "57EuynvpEoMDEgs2mzhwtA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Client.Entities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Client.Entities.html",
+          "hash": "sZHY6Utuw6rSHKb6ZdPg0Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Client.Modules.DisconnectModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Client.Modules.DisconnectModule.html",
+          "hash": "gToJBlQe0FKM7RRBPgpYsQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Client.Modules.QuitModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Client.Modules.QuitModule.html",
+          "hash": "aRdXsWm/SCQjcOLS6ykWzg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Client.Modules.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Client.Modules.html",
+          "hash": "onRquUs9xU+zruuSI/B4cQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Client.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Client.html",
+          "hash": "NpMncPVkavlxrCw6KgdRMA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Server.Controllers.EntityController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Server.Controllers.EntityController.html",
+          "hash": "PaSrtNPNHF7FmpljgbPeGg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Server.Controllers.EventController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Server.Controllers.EventController.html",
+          "hash": "GYsd/bsC23+11UxjjhIIaw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Server.Controllers.NetworkController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Server.Controllers.NetworkController.html",
+          "hash": "CfCoSlSYWmd141WDk7XjtA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Server.Controllers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Server.Controllers.html",
+          "hash": "wccvw4gWhSwNlGLCImOwcw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Server.DuneBehaviour.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Server.DuneBehaviour.html",
+          "hash": "ex7juMs9752Nnaz3Week2w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Server.DuneModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Server.DuneModule.html",
+          "hash": "KcOqF7YG1pX79mmyDtdQOQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Server.DuneMonoBehaviour.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Server.DuneMonoBehaviour.html",
+          "hash": "EhD+Z25vdfkf18/EZQp4/A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Server.DuneServer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Server.DuneServer.html",
+          "hash": "Etd+ALKdmZQS36fyk+HHhg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Server.Entities.Entity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Server.Entities.Entity.html",
+          "hash": "IprnL8mMJr25fZEv7tsQjA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Server.Entities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Server.Entities.html",
+          "hash": "1olgK4jPV66GSAG8u/Z4yg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Server.Modules.NewConnectionModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Server.Modules.NewConnectionModule.html",
+          "hash": "RdayJexhz/sS2AepVD7YzA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Server.Modules.QuitModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Server.Modules.QuitModule.html",
+          "hash": "swnSytB7qqQLGuduDoU6AA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Server.Modules.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Server.Modules.html",
+          "hash": "S2fwqek1Pp+DVpoLy3dirQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Server.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Server.html",
+          "hash": "iatnQG22JkWLzab7oAUwGQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Shared.Controllers.BaseEntityController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Shared.Controllers.BaseEntityController.html",
+          "hash": "pySSWmjIEhk1AR4POXvnYQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Shared.Controllers.BaseEventController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Shared.Controllers.BaseEventController.html",
+          "hash": "Ks2fHNg5mP6+axgTerMx+Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Shared.Controllers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Shared.Controllers.html",
+          "hash": "DVteQfkVkM1yAFJ9aHSzWQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Shared.DuneConnection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Shared.DuneConnection.html",
+          "hash": "Es5I29upfWgOk/z7H9x8cA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Shared.DuneLog.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Shared.DuneLog.html",
+          "hash": "OQYecqJDbjXglF3bFioAcw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Shared.DuneUpdater.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Shared.DuneUpdater.html",
+          "hash": "Ur1fcXXSEGAbuynImwIQcg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Shared.Entities.BaseEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Shared.Entities.BaseEntity.html",
+          "hash": "UY+dbhDkTx6/blIuU+Ck4w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Shared.Entities.EntityInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Shared.Entities.EntityInfo.html",
+          "hash": "SopKSvwIk4ud1TI2FaQHHw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Shared.Entities.EntityRegAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Shared.Entities.EntityRegAttribute.html",
+          "hash": "Rvp0yAG5d2Y4b1DVX/Jl9A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Shared.Entities.NetworkedVariable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Shared.Entities.NetworkedVariable.html",
+          "hash": "GdkyuZh4wBLgXdl8avoI5w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Shared.Entities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Shared.Entities.html",
+          "hash": "70g/sQtZEW924W+Im2vlZg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Shared.Enums.NetworkContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Shared.Enums.NetworkContext.html",
+          "hash": "WebbGW1dPN5C/27gsAULeA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Shared.Enums.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Shared.Enums.html",
+          "hash": "YOk2JBf0ARgFpth0kfZzDQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Shared.Events.EventArguments.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Shared.Events.EventArguments.html",
+          "hash": "eFp4geUOUxmza1AgpojNLg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Shared.Events.EventRegAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Shared.Events.EventRegAttribute.html",
+          "hash": "rJZqzwcVvBzBRW3m4fc/xA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Shared.Events.IEventCompatible.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Shared.Events.IEventCompatible.html",
+          "hash": "duhVXei5SAvoCGJAoqbvmQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Shared.Events.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Shared.Events.html",
+          "hash": "1hj7vdoFcEs3RSLfgsJAmQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Shared.Messages.MessageChannels.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Shared.Messages.MessageChannels.html",
+          "hash": "0YmnQGyZkI0cJOPFbeEqhQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Shared.Messages.MsgTypes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Shared.Messages.MsgTypes.html",
+          "hash": "RgN2aqmdAVW4ql+qRoy+ng=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Shared.Messages.SharedAuthorityMessage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Shared.Messages.SharedAuthorityMessage.html",
+          "hash": "fzHBkhJoQ97HWGTgR3w8bA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Shared.Messages.SharedDestroyEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Shared.Messages.SharedDestroyEntity.html",
+          "hash": "7KNGqXcNYqhvYd7LAkQAng=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Shared.Messages.SharedHandshakeRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Shared.Messages.SharedHandshakeRequest.html",
+          "hash": "WchfRhXeqdqjPkvivKnn9g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Shared.Messages.SharedHandshakeResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Shared.Messages.SharedHandshakeResponse.html",
+          "hash": "28dqCuyr0X+kU/epqAEiXg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Shared.Messages.SharedInvokeEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Shared.Messages.SharedInvokeEvent.html",
+          "hash": "58RHfzVAUHuWylVDbWClEg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Shared.Messages.SharedSetEntityParent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Shared.Messages.SharedSetEntityParent.html",
+          "hash": "IpU1HznrPBzwxaj4IWoJUQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Shared.Messages.SharedSetEntityPosition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Shared.Messages.SharedSetEntityPosition.html",
+          "hash": "mP7lCB/OwZryOIa3jF6zaQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Shared.Messages.SharedSetEntityRotation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Shared.Messages.SharedSetEntityRotation.html",
+          "hash": "SHL5/0qYiKh1CJSMBmUhyg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Shared.Messages.SharedSpawnEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Shared.Messages.SharedSpawnEntity.html",
+          "hash": "7RXr/5RR0re+x8M+VBQ4qQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Shared.Messages.SharedUpdateEntityPositionAndRotation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Shared.Messages.SharedUpdateEntityPositionAndRotation.html",
+          "hash": "2WYBWxqzcigtk3PmlSObog=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Shared.Messages.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Shared.Messages.html",
+          "hash": "iBYXz7ozmepsrDRIVM+wbQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Shared.Modules.HandshakeRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Shared.Modules.HandshakeRequest.html",
+          "hash": "nYdor2M6fswHKtwUK0QxDQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Shared.Modules.HandshakeResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Shared.Modules.HandshakeResponse.html",
+          "hash": "PsSwFshqbcdyAKsB0ORKnw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Shared.Modules.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Shared.Modules.html",
+          "hash": "YY6vSGpM2ZMMOEaQqD8JvA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DuneNet.Shared.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DuneNet.Shared.html",
+          "hash": "MMSE2rbj9qEeb1UBuUH4cA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "1xIsA7W07mLlzd+3ksPWrw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "xoZuq7uhxeaClBmN2l+ezw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "documentation/getting-started/example-1.md",
+      "output": {
+        ".html": {
+          "relative_path": "documentation/getting-started/example-1.html",
+          "hash": "kzbSp6/Zs1i3Qj+/OQNKyg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "documentation/getting-started/example-2.md",
+      "output": {
+        ".html": {
+          "relative_path": "documentation/getting-started/example-2.html",
+          "hash": "PKbb8hdIn/cA/aziyMT3Yg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "documentation/getting-started/example-3.md",
+      "output": {
+        ".html": {
+          "relative_path": "documentation/getting-started/example-3.html",
+          "hash": "QxRZYgba/HCexyHH5D4YMg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "documentation/getting-started/example-4.md",
+      "output": {
+        ".html": {
+          "relative_path": "documentation/getting-started/example-4.html",
+          "hash": "xqFb41VP6L3nf0CrobPPag=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "documentation/getting-started/example-5.md",
+      "output": {
+        ".html": {
+          "relative_path": "documentation/getting-started/example-5.html",
+          "hash": "jz+4FUgkJvr8XEjFP8cSKA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "documentation/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "documentation/index.html",
+          "hash": "3MrjAKpkIlH9wLwFI4ISqg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "documentation/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "documentation/toc.html",
+          "hash": "/earNcg4EGCGUhu8+sTszg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/dunenet-documentation-header.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/dunenet-documentation-header.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/examples/4/1.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/examples/4/1.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/examples/4/2.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/examples/4/2.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/examples/4/3.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/examples/4/3.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/favicon.ico",
+      "output": {
+        "resource": {
+          "relative_path": "images/favicon.ico"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/logo.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/logo.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "ZVv2WSwJlUK6v4/QT8lhxg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "ldx7Lu1e4m2OpyHGqPvFdw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": true,
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 8,
+          "skipped_file_count": 8
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 62,
+          "skipped_file_count": 62
+        },
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

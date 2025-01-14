@@ -1,0 +1,874 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class DuneModule
+   | DuneNet </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class DuneModule
+   | DuneNet ">
+    <meta name="generator" content="docfx 2.50.0.0">
+    
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="DuneNet.Client.DuneModule">
+  
+  
+  <h1 id="DuneNet_Client_DuneModule" data-uid="DuneNet.Client.DuneModule" class="text-break">Class DuneModule
+  </h1>
+  <div class="markdown level0 summary"><p>A client module to easily hook into DuneNet&apos;s client functionality.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="DuneNet.Client.DuneBehaviour.html">DuneBehaviour</a></div>
+    <div class="level2"><span class="xref">DuneModule</span></div>
+      <div class="level3"><a class="xref" href="DuneNet.Client.Modules.DisconnectModule.html">DisconnectModule</a></div>
+      <div class="level3"><a class="xref" href="DuneNet.Client.Modules.QuitModule.html">QuitModule</a></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="DuneNet.Shared.Events.IEventCompatible.html">IEventCompatible</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="DuneNet.Client.DuneBehaviour.html#DuneNet_Client_DuneBehaviour_RegisterEventInstance">DuneBehaviour.RegisterEventInstance()</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="DuneNet.Client.html">DuneNet.Client</a></h6>
+  <h6><strong>Assembly</strong>: DuneNet.Client.dll</h6>
+  <h5 id="DuneNet_Client_DuneModule_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class DuneModule : DuneBehaviour, IEventCompatible</code></pre>
+  </div>
+  <h5 id="DuneNet_Client_DuneModule_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>This is the preferable way to extend DuneNet&apos;s functionality.</p>
+</div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="DuneNet_Client_DuneModule_OnHandshakeError_" data-uid="DuneNet.Client.DuneModule.OnHandshakeError*"></a>
+  <h4 id="DuneNet_Client_DuneModule_OnHandshakeError_DuneNet_Shared_DuneConnection_System_String_" data-uid="DuneNet.Client.DuneModule.OnHandshakeError(DuneNet.Shared.DuneConnection,System.String)">OnHandshakeError(DuneConnection, String)</h4>
+  <div class="markdown level1 summary"><p>Overridable method called when the server rejects the authentication request.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnHandshakeError(DuneConnection conn, string error)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DuneNet.Shared.DuneConnection.html">DuneConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>The connection that performed the authentication.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">error</span></td>
+        <td><p>The descriptive error the server provided as a reason for rejecting the authentication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DuneNet_Client_DuneModule_OnHandshakeErrorInternal_" data-uid="DuneNet.Client.DuneModule.OnHandshakeErrorInternal*"></a>
+  <h4 id="DuneNet_Client_DuneModule_OnHandshakeErrorInternal_DuneNet_Shared_Events_EventArguments_" data-uid="DuneNet.Client.DuneModule.OnHandshakeErrorInternal(DuneNet.Shared.Events.EventArguments)">OnHandshakeErrorInternal(EventArguments)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EventReg(&quot;OnClientAuthenticationError&quot;, NetworkContext.Client, false)]
+protected void OnHandshakeErrorInternal(EventArguments args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DuneNet.Shared.Events.EventArguments.html">EventArguments</a></td>
+        <td><span class="parametername">args</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DuneNet_Client_DuneModule_OnHandshakeSuccessful_" data-uid="DuneNet.Client.DuneModule.OnHandshakeSuccessful*"></a>
+  <h4 id="DuneNet_Client_DuneModule_OnHandshakeSuccessful_DuneNet_Shared_DuneConnection_" data-uid="DuneNet.Client.DuneModule.OnHandshakeSuccessful(DuneNet.Shared.DuneConnection)">OnHandshakeSuccessful(DuneConnection)</h4>
+  <div class="markdown level1 summary"><p>Overridable method called when the server accepted the authentication request.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnHandshakeSuccessful(DuneConnection conn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DuneNet.Shared.DuneConnection.html">DuneConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>The connection that performed the authentication.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DuneNet_Client_DuneModule_OnHandshakeSuccessfulInternal_" data-uid="DuneNet.Client.DuneModule.OnHandshakeSuccessfulInternal*"></a>
+  <h4 id="DuneNet_Client_DuneModule_OnHandshakeSuccessfulInternal_DuneNet_Shared_Events_EventArguments_" data-uid="DuneNet.Client.DuneModule.OnHandshakeSuccessfulInternal(DuneNet.Shared.Events.EventArguments)">OnHandshakeSuccessfulInternal(EventArguments)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EventReg(&quot;OnClientAuthenticationSuccess&quot;, NetworkContext.Client, false)]
+protected void OnHandshakeSuccessfulInternal(EventArguments args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DuneNet.Shared.Events.EventArguments.html">EventArguments</a></td>
+        <td><span class="parametername">args</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DuneNet_Client_DuneModule_OnNetBadMessage_" data-uid="DuneNet.Client.DuneModule.OnNetBadMessage*"></a>
+  <h4 id="DuneNet_Client_DuneModule_OnNetBadMessage_DuneNet_Shared_DuneConnection_" data-uid="DuneNet.Client.DuneModule.OnNetBadMessage(DuneNet.Shared.DuneConnection)">OnNetBadMessage(DuneConnection)</h4>
+  <div class="markdown level1 summary"><p>Overridable method called when the NetworkController gets disconnected from the server because a message was invalid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnNetBadMessage(DuneConnection conn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DuneNet.Shared.DuneConnection.html">DuneConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>The connection the error occurred in.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DuneNet_Client_DuneModule_OnNetBadMessageInternal_" data-uid="DuneNet.Client.DuneModule.OnNetBadMessageInternal*"></a>
+  <h4 id="DuneNet_Client_DuneModule_OnNetBadMessageInternal_DuneNet_Shared_Events_EventArguments_" data-uid="DuneNet.Client.DuneModule.OnNetBadMessageInternal(DuneNet.Shared.Events.EventArguments)">OnNetBadMessageInternal(EventArguments)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EventReg(&quot;OnClientErrorBadMessage&quot;, NetworkContext.Client, false)]
+protected void OnNetBadMessageInternal(EventArguments args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DuneNet.Shared.Events.EventArguments.html">EventArguments</a></td>
+        <td><span class="parametername">args</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DuneNet_Client_DuneModule_OnNetConnected_" data-uid="DuneNet.Client.DuneModule.OnNetConnected*"></a>
+  <h4 id="DuneNet_Client_DuneModule_OnNetConnected_DuneNet_Shared_DuneConnection_" data-uid="DuneNet.Client.DuneModule.OnNetConnected(DuneNet.Shared.DuneConnection)">OnNetConnected(DuneConnection)</h4>
+  <div class="markdown level1 summary"><p>Overridable method called when the NetworkController connects to a server.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnNetConnected(DuneConnection conn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DuneNet.Shared.DuneConnection.html">DuneConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>The connection that got connected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DuneNet_Client_DuneModule_OnNetConnectedInternal_" data-uid="DuneNet.Client.DuneModule.OnNetConnectedInternal*"></a>
+  <h4 id="DuneNet_Client_DuneModule_OnNetConnectedInternal_DuneNet_Shared_Events_EventArguments_" data-uid="DuneNet.Client.DuneModule.OnNetConnectedInternal(DuneNet.Shared.Events.EventArguments)">OnNetConnectedInternal(EventArguments)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EventReg(&quot;OnClientConnect&quot;, NetworkContext.Client, false)]
+protected void OnNetConnectedInternal(EventArguments args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DuneNet.Shared.Events.EventArguments.html">EventArguments</a></td>
+        <td><span class="parametername">args</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DuneNet_Client_DuneModule_OnNetDisconnected_" data-uid="DuneNet.Client.DuneModule.OnNetDisconnected*"></a>
+  <h4 id="DuneNet_Client_DuneModule_OnNetDisconnected_DuneNet_Shared_DuneConnection_" data-uid="DuneNet.Client.DuneModule.OnNetDisconnected(DuneNet.Shared.DuneConnection)">OnNetDisconnected(DuneConnection)</h4>
+  <div class="markdown level1 summary"><p>Overridable method called when the NetworkController disconnects from a server.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnNetDisconnected(DuneConnection conn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DuneNet.Shared.DuneConnection.html">DuneConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>The connection that got disconnected.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DuneNet_Client_DuneModule_OnNetDisconnectedInternal_" data-uid="DuneNet.Client.DuneModule.OnNetDisconnectedInternal*"></a>
+  <h4 id="DuneNet_Client_DuneModule_OnNetDisconnectedInternal_DuneNet_Shared_Events_EventArguments_" data-uid="DuneNet.Client.DuneModule.OnNetDisconnectedInternal(DuneNet.Shared.Events.EventArguments)">OnNetDisconnectedInternal(EventArguments)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EventReg(&quot;OnClientDisconnect&quot;, NetworkContext.Client, false)]
+protected void OnNetDisconnectedInternal(EventArguments args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DuneNet.Shared.Events.EventArguments.html">EventArguments</a></td>
+        <td><span class="parametername">args</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DuneNet_Client_DuneModule_OnNetDnsFailure_" data-uid="DuneNet.Client.DuneModule.OnNetDnsFailure*"></a>
+  <h4 id="DuneNet_Client_DuneModule_OnNetDnsFailure_DuneNet_Shared_DuneConnection_" data-uid="DuneNet.Client.DuneModule.OnNetDnsFailure(DuneNet.Shared.DuneConnection)">OnNetDnsFailure(DuneConnection)</h4>
+  <div class="markdown level1 summary"><p>Overridable method called when the NetworkController cannot resolve the FQDN provided for the connection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnNetDnsFailure(DuneConnection conn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DuneNet.Shared.DuneConnection.html">DuneConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>The connection the error occurred in.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DuneNet_Client_DuneModule_OnNetDnsFailureInternal_" data-uid="DuneNet.Client.DuneModule.OnNetDnsFailureInternal*"></a>
+  <h4 id="DuneNet_Client_DuneModule_OnNetDnsFailureInternal_DuneNet_Shared_Events_EventArguments_" data-uid="DuneNet.Client.DuneModule.OnNetDnsFailureInternal(DuneNet.Shared.Events.EventArguments)">OnNetDnsFailureInternal(EventArguments)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EventReg(&quot;OnClientErrorDNSFailure&quot;, NetworkContext.Client, false)]
+protected void OnNetDnsFailureInternal(EventArguments args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DuneNet.Shared.Events.EventArguments.html">EventArguments</a></td>
+        <td><span class="parametername">args</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DuneNet_Client_DuneModule_OnNetErrorUnknown_" data-uid="DuneNet.Client.DuneModule.OnNetErrorUnknown*"></a>
+  <h4 id="DuneNet_Client_DuneModule_OnNetErrorUnknown_DuneNet_Shared_DuneConnection_NetworkError_" data-uid="DuneNet.Client.DuneModule.OnNetErrorUnknown(DuneNet.Shared.DuneConnection,NetworkError)">OnNetErrorUnknown(DuneConnection, NetworkError)</h4>
+  <div class="markdown level1 summary"><p>Overridable method called when the NetworkController experiences an unknown connection error.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnNetErrorUnknown(DuneConnection conn, NetworkError error)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DuneNet.Shared.DuneConnection.html">DuneConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>The connection the error occurred in.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">NetworkError</span></td>
+        <td><span class="parametername">error</span></td>
+        <td><p>The connection error.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DuneNet_Client_DuneModule_OnNetErrorUnknownInternal_" data-uid="DuneNet.Client.DuneModule.OnNetErrorUnknownInternal*"></a>
+  <h4 id="DuneNet_Client_DuneModule_OnNetErrorUnknownInternal_DuneNet_Shared_Events_EventArguments_" data-uid="DuneNet.Client.DuneModule.OnNetErrorUnknownInternal(DuneNet.Shared.Events.EventArguments)">OnNetErrorUnknownInternal(EventArguments)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EventReg(&quot;OnClientErrorGeneric&quot;, NetworkContext.Client, false)]
+protected void OnNetErrorUnknownInternal(EventArguments args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DuneNet.Shared.Events.EventArguments.html">EventArguments</a></td>
+        <td><span class="parametername">args</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DuneNet_Client_DuneModule_OnNetNotReady_" data-uid="DuneNet.Client.DuneModule.OnNetNotReady*"></a>
+  <h4 id="DuneNet_Client_DuneModule_OnNetNotReady_DuneNet_Shared_DuneConnection_" data-uid="DuneNet.Client.DuneModule.OnNetNotReady(DuneNet.Shared.DuneConnection)">OnNetNotReady(DuneConnection)</h4>
+  <div class="markdown level1 summary"><p>Overridable method called when the NetworkController is set not ready by the server.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnNetNotReady(DuneConnection conn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DuneNet.Shared.DuneConnection.html">DuneConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>The connection that was set not ready.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DuneNet_Client_DuneModule_OnNetNotReadyInternal_" data-uid="DuneNet.Client.DuneModule.OnNetNotReadyInternal*"></a>
+  <h4 id="DuneNet_Client_DuneModule_OnNetNotReadyInternal_DuneNet_Shared_Events_EventArguments_" data-uid="DuneNet.Client.DuneModule.OnNetNotReadyInternal(DuneNet.Shared.Events.EventArguments)">OnNetNotReadyInternal(EventArguments)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EventReg(&quot;OnClientNotReady&quot;, NetworkContext.Client, false)]
+protected void OnNetNotReadyInternal(EventArguments args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DuneNet.Shared.Events.EventArguments.html">EventArguments</a></td>
+        <td><span class="parametername">args</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DuneNet_Client_DuneModule_OnNetReady_" data-uid="DuneNet.Client.DuneModule.OnNetReady*"></a>
+  <h4 id="DuneNet_Client_DuneModule_OnNetReady_DuneNet_Shared_DuneConnection_" data-uid="DuneNet.Client.DuneModule.OnNetReady(DuneNet.Shared.DuneConnection)">OnNetReady(DuneConnection)</h4>
+  <div class="markdown level1 summary"><p>Overridable method called when the NetworkController is set ready by the server.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnNetReady(DuneConnection conn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DuneNet.Shared.DuneConnection.html">DuneConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>The connection that was set ready.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DuneNet_Client_DuneModule_OnNetReadyInternal_" data-uid="DuneNet.Client.DuneModule.OnNetReadyInternal*"></a>
+  <h4 id="DuneNet_Client_DuneModule_OnNetReadyInternal_DuneNet_Shared_Events_EventArguments_" data-uid="DuneNet.Client.DuneModule.OnNetReadyInternal(DuneNet.Shared.Events.EventArguments)">OnNetReadyInternal(EventArguments)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EventReg(&quot;OnClientReady&quot;, NetworkContext.Client, false)]
+protected void OnNetReadyInternal(EventArguments args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DuneNet.Shared.Events.EventArguments.html">EventArguments</a></td>
+        <td><span class="parametername">args</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DuneNet_Client_DuneModule_OnNetTimeout_" data-uid="DuneNet.Client.DuneModule.OnNetTimeout*"></a>
+  <h4 id="DuneNet_Client_DuneModule_OnNetTimeout_DuneNet_Shared_DuneConnection_" data-uid="DuneNet.Client.DuneModule.OnNetTimeout(DuneNet.Shared.DuneConnection)">OnNetTimeout(DuneConnection)</h4>
+  <div class="markdown level1 summary"><p>Overridable method called when the NetworkController&apos;s connection to a server times out.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnNetTimeout(DuneConnection conn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DuneNet.Shared.DuneConnection.html">DuneConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>The connection the error occurred in.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DuneNet_Client_DuneModule_OnNetTimeoutInternal_" data-uid="DuneNet.Client.DuneModule.OnNetTimeoutInternal*"></a>
+  <h4 id="DuneNet_Client_DuneModule_OnNetTimeoutInternal_DuneNet_Shared_Events_EventArguments_" data-uid="DuneNet.Client.DuneModule.OnNetTimeoutInternal(DuneNet.Shared.Events.EventArguments)">OnNetTimeoutInternal(EventArguments)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EventReg(&quot;OnClientErrorTimeout&quot;, NetworkContext.Client, false)]
+protected void OnNetTimeoutInternal(EventArguments args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DuneNet.Shared.Events.EventArguments.html">EventArguments</a></td>
+        <td><span class="parametername">args</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DuneNet_Client_DuneModule_OnSendHandshake_" data-uid="DuneNet.Client.DuneModule.OnSendHandshake*"></a>
+  <h4 id="DuneNet_Client_DuneModule_OnSendHandshake_DuneNet_Shared_Modules_HandshakeRequest_" data-uid="DuneNet.Client.DuneModule.OnSendHandshake(DuneNet.Shared.Modules.HandshakeRequest)">OnSendHandshake(HandshakeRequest)</h4>
+  <div class="markdown level1 summary"><p>Overridable method called when the client is expected to send its authentication request to the server.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual HandshakeRequest OnSendHandshake(HandshakeRequest previous)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DuneNet.Shared.Modules.HandshakeRequest.html">HandshakeRequest</a></td>
+        <td><span class="parametername">previous</span></td>
+        <td><p>The HandshakeRequest received from the previous module. This is never null but it may contain empty elements if this is the first module of the chain.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DuneNet.Shared.Modules.HandshakeRequest.html">HandshakeRequest</a></td>
+        <td><p>A HandshakeRequest instance to be passed onto the next module of the chain.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="DuneNet_Client_DuneModule_OnSendHandshake_DuneNet_Shared_Modules_HandshakeRequest__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Since modules are chained together, multiple modules can be used to generate the final HandshakeRequest by modifying the previous HandshakeRequest and returning it. </p>
+</div>
+  
+  
+  <a id="DuneNet_Client_DuneModule_OnStopUsing_" data-uid="DuneNet.Client.DuneModule.OnStopUsing*"></a>
+  <h4 id="DuneNet_Client_DuneModule_OnStopUsing" data-uid="DuneNet.Client.DuneModule.OnStopUsing">OnStopUsing()</h4>
+  <div class="markdown level1 summary"><p>Overridable method called when the module is removed from the module chain.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnStopUsing()</code></pre>
+  </div>
+  
+  
+  <a id="DuneNet_Client_DuneModule_OnUpdate_" data-uid="DuneNet.Client.DuneModule.OnUpdate*"></a>
+  <h4 id="DuneNet_Client_DuneModule_OnUpdate" data-uid="DuneNet.Client.DuneModule.OnUpdate">OnUpdate()</h4>
+  <div class="markdown level1 summary"><p>Overridable method called every frame.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnUpdate()</code></pre>
+  </div>
+  
+  
+  <a id="DuneNet_Client_DuneModule_OnUse_" data-uid="DuneNet.Client.DuneModule.OnUse*"></a>
+  <h4 id="DuneNet_Client_DuneModule_OnUse" data-uid="DuneNet.Client.DuneModule.OnUse">OnUse()</h4>
+  <div class="markdown level1 summary"><p>Overridable method called when the module is added to the module chain.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnUse()</code></pre>
+  </div>
+  
+  
+  <a id="DuneNet_Client_DuneModule_StartCoroutine_" data-uid="DuneNet.Client.DuneModule.StartCoroutine*"></a>
+  <h4 id="DuneNet_Client_DuneModule_StartCoroutine_System_Collections_IEnumerator_" data-uid="DuneNet.Client.DuneModule.StartCoroutine(System.Collections.IEnumerator)">StartCoroutine(IEnumerator)</h4>
+  <div class="markdown level1 summary"><p>Starts a coroutine</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Coroutine StartCoroutine(IEnumerator routine)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.IEnumerator</span></td>
+        <td><span class="parametername">routine</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Coroutine</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="DuneNet.Shared.Events.IEventCompatible.html">IEventCompatible</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span class="footer-text">Copyright © 2018 Dune Interactive.
+          </span></div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

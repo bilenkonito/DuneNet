@@ -1,0 +1,337 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Connecting a client to a server for the first time | DuneNet </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Connecting a client to a server for the first time | DuneNet ">
+    <meta name="generator" content="docfx 2.50.0.0">
+    
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../images/logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="connecting-a-client-to-a-server-for-the-first-time">Connecting a client to a server for the first time</h1>
+
+<h2 id="overview">Overview</h2>
+<p>The first step required to start using DuneNet in a multiplayer game is connecting clients to a server.<br>This requires two scenes, each of them with a <code>Monobehaviour</code> or <code>DuneMonoBehaviour</code> component attached to an active GameObject.<br>In this example we will use two components that derive from DuneMonoBehaviour called ServerInit and ClientInit. These components will be attached to empty GameObjects in the <code>Assets/Scenes/Server/init.unity</code> and <code>Assets/Scenes/Client/init.unity</code> scenes respectively.<br>We will first provide the whole code for the example and then we will explain the important aspects of it.</p>
+<p><em>Assets/Scripts/Server/ServerInit.cs:</em>  </p>
+<pre><code class="lang-csharp">using DuneNet.Server;
+using UnityEngine;
+using UnityEngine.Networking;
+
+namespace Server
+{
+    public class ServerInit : DuneNet.Server.DuneMonoBehaviour
+    {
+        protected override void OnAwake()
+        {
+            DuneServer.NetworkController.Init(new GlobalConfig
+            {
+                MaxHosts = 20,
+                MaxNetSimulatorTimeout = 12000,
+                MaxPacketSize = 2000,
+                MaxTimerTimeout = 12000,
+                MinNetSimulatorTimeout = 1,
+                ReactorMaximumReceivedMessages = 8092,
+                ReactorMaximumSentMessages = 8092,
+                ReactorModel = ReactorModel.SelectReactor,
+                ThreadAwakeTimeout = 1,
+                ThreadPoolSize = 1
+            }, new ConnectionConfig
+            {
+                AckDelay = 33,
+                AcksType = ConnectionAcksType.Acks32,
+                AllCostTimeout = 20,
+                BandwidthPeakFactor = 2,
+                ConnectTimeout = 2000,
+                DisconnectTimeout = 2000,
+                FragmentSize = 500,
+                InitialBandwidth = 0,
+                MaxCombinedReliableMessageCount = 10,
+                MaxCombinedReliableMessageSize = 100,
+                MaxConnectionAttempt = 10,
+                MaxSentMessageQueueSize = 896,
+                MinUpdateTimeout = 10,
+                NetworkDropThreshold = 5,
+                OverflowDropThreshold = 5,
+                PacketSize = 1440,
+                PingTimeout = 500,
+                ReducedPingTimeout = 100,
+                ResendTimeout = 1200,
+                SendDelay = 0,
+                SSLCAFilePath = &quot;&quot;,
+                SSLCertFilePath = &quot;&quot;,
+                SSLPrivateKeyFilePath = &quot;&quot;,
+                UdpSocketReceiveBufferMaxSize = 0,
+                UsePlatformSpecificProtocols = false,
+                WebSocketReceiveBufferMaxSize = 0
+            }, 20);
+
+            if (!DuneServer.NetworkController.Listen(&quot;127.0.0.1&quot;, 7000))
+            {
+                Debug.LogError(&quot;Error initializing network.&quot;);
+            }
+        }
+    }
+}  
+</code></pre><p><em>Assets/Scripts/Client/ClientInit.cs:</em>  </p>
+<pre><code class="lang-csharp">using DuneNet.Client;
+using UnityEngine;
+using UnityEngine.Networking;
+
+namespace Client
+{
+    public class ClientInit : DuneNet.Client.DuneMonoBehaviour
+    {
+        protected override void OnAwake()
+        {
+            DuneClient.NetworkController.Init(new GlobalConfig
+            {
+                MaxHosts = 1,
+                MaxNetSimulatorTimeout = 12000,
+                MaxPacketSize = 2000,
+                MaxTimerTimeout = 12000,
+                MinNetSimulatorTimeout = 1,
+                ReactorMaximumReceivedMessages = 8092,
+                ReactorMaximumSentMessages = 8092,
+                ReactorModel = ReactorModel.SelectReactor,
+                ThreadAwakeTimeout = 1,
+                ThreadPoolSize = 1
+            }, new ConnectionConfig
+            {
+                AckDelay = 33,
+                AcksType = ConnectionAcksType.Acks32,
+                AllCostTimeout = 20,
+                BandwidthPeakFactor = 2,
+                ConnectTimeout = 2000,
+                DisconnectTimeout = 2000,
+                FragmentSize = 500,
+                InitialBandwidth = 0,
+                MaxCombinedReliableMessageCount = 10,
+                MaxCombinedReliableMessageSize = 100,
+                MaxConnectionAttempt = 10,
+                MaxSentMessageQueueSize = 896,
+                MinUpdateTimeout = 10,
+                NetworkDropThreshold = 5,
+                OverflowDropThreshold = 5,
+                PacketSize = 1440,
+                PingTimeout = 500,
+                ReducedPingTimeout = 100,
+                ResendTimeout = 1200,
+                SendDelay = 0,
+                SSLCAFilePath = &quot;&quot;,
+                SSLCertFilePath = &quot;&quot;,
+                SSLPrivateKeyFilePath = &quot;&quot;,
+                UdpSocketReceiveBufferMaxSize = 0,
+                UsePlatformSpecificProtocols = false,
+                WebSocketReceiveBufferMaxSize = 0
+            }, 20);
+
+            if (!DuneClient.NetworkController.Connect(&quot;127.0.0.1&quot;, 7000))
+            {
+                Debug.LogError(&quot;Error initializing network.&quot;);
+            }
+        }
+    }
+}
+</code></pre><h2 id="serverinitcs">ServerInit.cs</h2>
+<p>This class takes care of initializing the serverside <a href="../../api/DuneNet.Server.Controllers.NetworkController.html"><code>NetworkController</code></a> and listening for incoming connections.  </p>
+<p>First of all, we define a new class that derives from <a href="../../api/DuneNet.Server.DuneMonoBehaviour.html"><code>DuneMonoBehaviour</code></a>:  </p>
+<pre><code class="lang-csharp">public class ServerInit : DuneNet.Server.DuneMonoBehaviour
+</code></pre><p>This makes sure that the <code>ServerInit</code> class can listen for events.</p>
+<p>The second thing we need to do is initialize the <a href="../../api/DuneNet.Server.Controllers.NetworkController.html"><code>NetworkController</code></a> with a configuration of our choice. This configuration is provided by two Unity objects: <a href="https://docs.unity3d.com/ScriptReference/Networking.GlobalConfig.html"><code>GlobalConfig</code></a> and <a href="https://docs.unity3d.com/ScriptReference/Networking.ConnectionConfig.html"><code>ConnectionConfig</code></a>.<br>We also need to tell the initializer how many connections should be opened at the same time. For the server, this is usually the same as the amount of clients we expect to handle at the same time, and should be the same number as <a href="https://docs.unity3d.com/ScriptReference/Networking.GlobalConfig.html"><code>GlobalConfig</code></a>&#39;s <code>MaxHosts</code> variable.  </p>
+<pre><code class="lang-csharp">DuneClient.NetworkController.Init(new GlobalConfig
+{
+    MaxHosts = 1,
+    MaxNetSimulatorTimeout = 12000,
+    MaxPacketSize = 2000,
+    MaxTimerTimeout = 12000,
+    MinNetSimulatorTimeout = 1,
+    ReactorMaximumReceivedMessages = 8092,
+    ReactorMaximumSentMessages = 8092,
+    ReactorModel = ReactorModel.SelectReactor,
+    ThreadAwakeTimeout = 1,
+    ThreadPoolSize = 1
+}, new ConnectionConfig
+{
+    AckDelay = 33,
+    AcksType = ConnectionAcksType.Acks32,
+    AllCostTimeout = 20,
+    BandwidthPeakFactor = 2,
+    ConnectTimeout = 2000,
+    DisconnectTimeout = 2000,
+    FragmentSize = 500,
+    InitialBandwidth = 0,
+    MaxCombinedReliableMessageCount = 10,
+    MaxCombinedReliableMessageSize = 100,
+    MaxConnectionAttempt = 10,
+    MaxSentMessageQueueSize = 896,
+    MinUpdateTimeout = 10,
+    NetworkDropThreshold = 5,
+    OverflowDropThreshold = 5,
+    PacketSize = 1440,
+    PingTimeout = 500,
+    ReducedPingTimeout = 100,
+    ResendTimeout = 1200,
+    SendDelay = 0,
+    SSLCAFilePath = &quot;&quot;,
+    SSLCertFilePath = &quot;&quot;,
+    SSLPrivateKeyFilePath = &quot;&quot;,
+    UdpSocketReceiveBufferMaxSize = 0,
+    UsePlatformSpecificProtocols = false,
+    WebSocketReceiveBufferMaxSize = 0
+}, 20);
+</code></pre><p>The next and final step is simply instructing the <a href="../../api/DuneNet.Server.Controllers.NetworkController.html"><code>NetworkController</code></a> to listen for connections at certain IP and Port.<br>The IP should be <code>127.0.0.1</code> for the server to listen for connections in all the available IPs or a specific IP address the server can bind to. The <a href="../../api/DuneNet.Server.Controllers.NetworkController.html"><code>NetworkController</code></a> supports IPv6.<br>The port should be any port of your choice that is available to userspace applications (more than 1024 and less than 65535).  </p>
+<pre><code class="lang-csharp">if (!DuneClient.NetworkController.Connect(&quot;127.0.0.1&quot;, 7000))
+{
+    Debug.LogError(&quot;Error initializing network.&quot;);
+}
+</code></pre><p>Here, we also take the opportunity to check if the <a href="../../api/DuneNet.Server.Controllers.NetworkController.html"><code>NetworkController</code></a> was able to listen on the provided endpoint by checking the return value of <code>DuneClient.NetworkController.Connect()</code>.<br>Please, do note that this is a very rudimentary check that does not specify which error actually occurred so it should only be used for simple operations like exiting the application if the server was unable to listen. For more complex operations, using a <a href="../../api/DuneNet.Server.DuneModule.html"><code>DuneModule</code></a> is recommended.</p>
+<h2 id="clientinitcs">ClientInit.cs</h2>
+<p>This class takes care of initializing the clientside <a href="../../api/DuneNet.Client.Controllers.NetworkController.html"><code>NetworkController</code></a> and connecting to a server.  </p>
+<p>First of all, we define a new class that derives from <a href="../../api/DuneNet.Client.DuneMonoBehaviour.html"><code>DuneMonoBehaviour</code></a>:  </p>
+<pre><code class="lang-csharp">public class ClientInit : DuneNet.Client.DuneMonoBehaviour
+</code></pre><p>This makes sure that the <code>ClientInit</code> class can listen for events.</p>
+<p>The second thing we need to do is initialize the <a href="../../api/DuneNet.Client.Controllers.NetworkController.html"><code>NetworkController</code></a> with a configuration of our choice. This configuration is provided by two Unity objects: <a href="https://docs.unity3d.com/ScriptReference/Networking.GlobalConfig.html"><code>GlobalConfig</code></a> and <a href="https://docs.unity3d.com/ScriptReference/Networking.ConnectionConfig.html"><code>ConnectionConfig</code></a>.<br>We also need to tell the initializer how many connections should be opened at the same time. For the client, this is usually one, and should be the same number as <a href="https://docs.unity3d.com/ScriptReference/Networking.GlobalConfig.html"><code>GlobalConfig</code></a>&#39;s <code>MaxHosts</code> variable.  </p>
+<pre><code class="lang-csharp">DuneClient.NetworkController.Init(new GlobalConfig
+{
+    MaxHosts = 1,
+    MaxNetSimulatorTimeout = 12000,
+    MaxPacketSize = 2000,
+    MaxTimerTimeout = 12000,
+    MinNetSimulatorTimeout = 1,
+    ReactorMaximumReceivedMessages = 8092,
+    ReactorMaximumSentMessages = 8092,
+    ReactorModel = ReactorModel.SelectReactor,
+    ThreadAwakeTimeout = 1,
+    ThreadPoolSize = 1
+}, new ConnectionConfig
+{
+    AckDelay = 33,
+    AcksType = ConnectionAcksType.Acks32,
+    AllCostTimeout = 20,
+    BandwidthPeakFactor = 2,
+    ConnectTimeout = 2000,
+    DisconnectTimeout = 2000,
+    FragmentSize = 500,
+    InitialBandwidth = 0,
+    MaxCombinedReliableMessageCount = 10,
+    MaxCombinedReliableMessageSize = 100,
+    MaxConnectionAttempt = 10,
+    MaxSentMessageQueueSize = 896,
+    MinUpdateTimeout = 10,
+    NetworkDropThreshold = 5,
+    OverflowDropThreshold = 5,
+    PacketSize = 1440,
+    PingTimeout = 500,
+    ReducedPingTimeout = 100,
+    ResendTimeout = 1200,
+    SendDelay = 0,
+    SSLCAFilePath = &quot;&quot;,
+    SSLCertFilePath = &quot;&quot;,
+    SSLPrivateKeyFilePath = &quot;&quot;,
+    UdpSocketReceiveBufferMaxSize = 0,
+    UsePlatformSpecificProtocols = false,
+    WebSocketReceiveBufferMaxSize = 0
+}, 20);
+</code></pre><p>The next and final step is simply instructing the <a href="../../api/DuneNet.Client.Controllers.NetworkController.html"><code>NetworkController</code></a> to connect to a server that is listening at a certain IP and port.<br>The IP should be <code>127.0.0.1</code> to connect to a server running on the same machine as the client or a valid IP the client machine can reach in the rest of the cases. The <a href="../../api/DuneNet.Client.Controllers.NetworkController.html"><code>NetworkController</code></a> supports IPv6.<br>The port should be the port the server is listening on. This should be in the range reserved for userspace applications (more than 1024 and less than 65535).  </p>
+<pre><code class="lang-csharp">if (!DuneClient.NetworkController.Connect(&quot;127.0.0.1&quot;, 7000))
+{
+    Debug.LogError(&quot;Error initializing network.&quot;);
+}
+</code></pre><p>Here, we also take the opportunity to check if the <a href="../../api/DuneNet.Client.Controllers.NetworkController.html"><code>NetworkController</code></a> was able to initialize the client by checking the return value of <code>DuneClient.NetworkController.Connect()</code>.<br>Please, do note that this is a very rudimentary check that only verifies that the client was initialized properly. Connecting to a server is an asynchronous operation so any functionality that relies on checking the state of the connection should be handled using a <code>DuneModule</code>.</p>
+<h2 id="whats-next">What&#39;s next?</h2>
+<p>Now that we have an established connection, we should do something useful with it.<br>In the <a href="example-2.html">next example</a>, we will create two simple modules to print a message to the console when a connection is established.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span class="footer-text">Copyright © 2018 Dune Interactive.
+          </span></div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

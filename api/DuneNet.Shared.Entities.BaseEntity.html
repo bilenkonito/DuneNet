@@ -1,0 +1,629 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class BaseEntity
+   | DuneNet </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class BaseEntity
+   | DuneNet ">
+    <meta name="generator" content="docfx 2.50.0.0">
+    
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="DuneNet.Shared.Entities.BaseEntity">
+  
+  
+  <h1 id="DuneNet_Shared_Entities_BaseEntity" data-uid="DuneNet.Shared.Entities.BaseEntity" class="text-break">Class BaseEntity
+  </h1>
+  <div class="markdown level0 summary"><p>A base entity.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">BaseEntity</span></div>
+      <div class="level2"><a class="xref" href="DuneNet.Client.Entities.Entity.html">Entity</a></div>
+      <div class="level2"><a class="xref" href="DuneNet.Server.Entities.Entity.html">Entity</a></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="DuneNet.Shared.Entities.html">DuneNet.Shared.Entities</a></h6>
+  <h6><strong>Assembly</strong>: DuneNet.Shared.dll</h6>
+  <h5 id="DuneNet_Shared_Entities_BaseEntity_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class BaseEntity : MonoBehaviour</code></pre>
+  </div>
+  <h3 id="fields">Fields
+  </h3>
+  
+  
+  <h4 id="DuneNet_Shared_Entities_BaseEntity_DirtyBit" data-uid="DuneNet.Shared.Entities.BaseEntity.DirtyBit">DirtyBit</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool DirtyBit</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="DuneNet_Shared_Entities_BaseEntity_EntId" data-uid="DuneNet.Shared.Entities.BaseEntity.EntId">EntId</h4>
+  <div class="markdown level1 summary"><p>The ID of the entity. Null if the entity is not networked.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint? EntId</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.UInt32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="DuneNet_Shared_Entities_BaseEntity_EntName" data-uid="DuneNet.Shared.Entities.BaseEntity.EntName">EntName</h4>
+  <div class="markdown level1 summary"><p>The registration name of the entity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string EntName</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="DuneNet_Shared_Entities_BaseEntity_EntType" data-uid="DuneNet.Shared.Entities.BaseEntity.EntType">EntType</h4>
+  <div class="markdown level1 summary"><p>The reflection type of the entity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type EntType</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Type</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="DuneNet_Shared_Entities_BaseEntity_IsEntitySpawned" data-uid="DuneNet.Shared.Entities.BaseEntity.IsEntitySpawned">IsEntitySpawned</h4>
+  <div class="markdown level1 summary"><p>Whether the entity has been spawned. True if it has been spawned, False otherwise.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsEntitySpawned</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="DuneNet_Shared_Entities_BaseEntity_NetUpdateInterval" data-uid="DuneNet.Shared.Entities.BaseEntity.NetUpdateInterval">NetUpdateInterval</h4>
+  <div class="markdown level1 summary"><p>The network tickrate of the entity.
+This is how often (in seconds) the entity is synchronized.
+By default this is set to 0.030s, which means 33 times per second </p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float NetUpdateInterval</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="DuneNet_Shared_Entities_BaseEntity_NetUpdateTime" data-uid="DuneNet.Shared.Entities.BaseEntity.NetUpdateTime">NetUpdateTime</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected float NetUpdateTime</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="DuneNet_Shared_Entities_BaseEntity_Awake_" data-uid="DuneNet.Shared.Entities.BaseEntity.Awake*"></a>
+  <h4 id="DuneNet_Shared_Entities_BaseEntity_Awake" data-uid="DuneNet.Shared.Entities.BaseEntity.Awake">Awake()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void Awake()</code></pre>
+  </div>
+  
+  
+  <a id="DuneNet_Shared_Entities_BaseEntity_FixedUpdate_" data-uid="DuneNet.Shared.Entities.BaseEntity.FixedUpdate*"></a>
+  <h4 id="DuneNet_Shared_Entities_BaseEntity_FixedUpdate" data-uid="DuneNet.Shared.Entities.BaseEntity.FixedUpdate">FixedUpdate()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void FixedUpdate()</code></pre>
+  </div>
+  
+  
+  <a id="DuneNet_Shared_Entities_BaseEntity_LateUpdate_" data-uid="DuneNet.Shared.Entities.BaseEntity.LateUpdate*"></a>
+  <h4 id="DuneNet_Shared_Entities_BaseEntity_LateUpdate" data-uid="DuneNet.Shared.Entities.BaseEntity.LateUpdate">LateUpdate()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void LateUpdate()</code></pre>
+  </div>
+  
+  
+  <a id="DuneNet_Shared_Entities_BaseEntity_OnAwake_" data-uid="DuneNet.Shared.Entities.BaseEntity.OnAwake*"></a>
+  <h4 id="DuneNet_Shared_Entities_BaseEntity_OnAwake" data-uid="DuneNet.Shared.Entities.BaseEntity.OnAwake">OnAwake()</h4>
+  <div class="markdown level1 summary"><p>Overridable method called when the instance is being loaded.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnAwake()</code></pre>
+  </div>
+  
+  
+  <a id="DuneNet_Shared_Entities_BaseEntity_OnEntityDestroyed_" data-uid="DuneNet.Shared.Entities.BaseEntity.OnEntityDestroyed*"></a>
+  <h4 id="DuneNet_Shared_Entities_BaseEntity_OnEntityDestroyed" data-uid="DuneNet.Shared.Entities.BaseEntity.OnEntityDestroyed">OnEntityDestroyed()</h4>
+  <div class="markdown level1 summary"><p>Overridable method called when the entity is destroyed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnEntityDestroyed()</code></pre>
+  </div>
+  
+  
+  <a id="DuneNet_Shared_Entities_BaseEntity_OnEntityDestroyedInternal_" data-uid="DuneNet.Shared.Entities.BaseEntity.OnEntityDestroyedInternal*"></a>
+  <h4 id="DuneNet_Shared_Entities_BaseEntity_OnEntityDestroyedInternal" data-uid="DuneNet.Shared.Entities.BaseEntity.OnEntityDestroyedInternal">OnEntityDestroyedInternal()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnEntityDestroyedInternal()</code></pre>
+  </div>
+  
+  
+  <a id="DuneNet_Shared_Entities_BaseEntity_OnEntitySpawned_" data-uid="DuneNet.Shared.Entities.BaseEntity.OnEntitySpawned*"></a>
+  <h4 id="DuneNet_Shared_Entities_BaseEntity_OnEntitySpawned" data-uid="DuneNet.Shared.Entities.BaseEntity.OnEntitySpawned">OnEntitySpawned()</h4>
+  <div class="markdown level1 summary"><p>Overridable method called when the entity is spawned.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnEntitySpawned()</code></pre>
+  </div>
+  
+  
+  <a id="DuneNet_Shared_Entities_BaseEntity_OnFixedUpdate_" data-uid="DuneNet.Shared.Entities.BaseEntity.OnFixedUpdate*"></a>
+  <h4 id="DuneNet_Shared_Entities_BaseEntity_OnFixedUpdate" data-uid="DuneNet.Shared.Entities.BaseEntity.OnFixedUpdate">OnFixedUpdate()</h4>
+  <div class="markdown level1 summary"><p>Overridable method called every fixed framerate frame, if the DuneMonobehaviour is enabled.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnFixedUpdate()</code></pre>
+  </div>
+  
+  
+  <a id="DuneNet_Shared_Entities_BaseEntity_OnLateUpdate_" data-uid="DuneNet.Shared.Entities.BaseEntity.OnLateUpdate*"></a>
+  <h4 id="DuneNet_Shared_Entities_BaseEntity_OnLateUpdate" data-uid="DuneNet.Shared.Entities.BaseEntity.OnLateUpdate">OnLateUpdate()</h4>
+  <div class="markdown level1 summary"><p>Overridable method called every frame, if the DuneMonobehaviour is enabled.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnLateUpdate()</code></pre>
+  </div>
+  
+  
+  <a id="DuneNet_Shared_Entities_BaseEntity_OnSetParent_" data-uid="DuneNet.Shared.Entities.BaseEntity.OnSetParent*"></a>
+  <h4 id="DuneNet_Shared_Entities_BaseEntity_OnSetParent_DuneNet_Shared_Entities_BaseEntity_" data-uid="DuneNet.Shared.Entities.BaseEntity.OnSetParent(DuneNet.Shared.Entities.BaseEntity)">OnSetParent(BaseEntity)</h4>
+  <div class="markdown level1 summary"><p>Overridable method called when the entity&apos;s parent is changed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnSetParent(BaseEntity newParent)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DuneNet.Shared.Entities.BaseEntity.html">BaseEntity</a></td>
+        <td><span class="parametername">newParent</span></td>
+        <td><p>The new parent of the entity.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DuneNet_Shared_Entities_BaseEntity_OnSetPos_" data-uid="DuneNet.Shared.Entities.BaseEntity.OnSetPos*"></a>
+  <h4 id="DuneNet_Shared_Entities_BaseEntity_OnSetPos_Vector3_Vector3_" data-uid="DuneNet.Shared.Entities.BaseEntity.OnSetPos(Vector3,Vector3)">OnSetPos(Vector3, Vector3)</h4>
+  <div class="markdown level1 summary"><p>Overridable method called when the entity&apos;s position is changed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnSetPos(Vector3 oldPos, Vector3 newPos)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Vector3</span></td>
+        <td><span class="parametername">oldPos</span></td>
+        <td><p>The position before the entity was moved.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Vector3</span></td>
+        <td><span class="parametername">newPos</span></td>
+        <td><p>The position after the entity has been moved.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DuneNet_Shared_Entities_BaseEntity_OnSetRot_" data-uid="DuneNet.Shared.Entities.BaseEntity.OnSetRot*"></a>
+  <h4 id="DuneNet_Shared_Entities_BaseEntity_OnSetRot_Quaternion_Quaternion_" data-uid="DuneNet.Shared.Entities.BaseEntity.OnSetRot(Quaternion,Quaternion)">OnSetRot(Quaternion, Quaternion)</h4>
+  <div class="markdown level1 summary"><p>Overridable method called when the entity&apos;s rotation is changed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnSetRot(Quaternion oldRot, Quaternion newRot)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Quaternion</span></td>
+        <td><span class="parametername">oldRot</span></td>
+        <td><p>The rotation before the entity was moved.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Quaternion</span></td>
+        <td><span class="parametername">newRot</span></td>
+        <td><p>The rotation after the entity has been moved.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DuneNet_Shared_Entities_BaseEntity_OnStart_" data-uid="DuneNet.Shared.Entities.BaseEntity.OnStart*"></a>
+  <h4 id="DuneNet_Shared_Entities_BaseEntity_OnStart" data-uid="DuneNet.Shared.Entities.BaseEntity.OnStart">OnStart()</h4>
+  <div class="markdown level1 summary"><p>Overridable method called on the frame when the instance is enabled just before any of the Update methods is called the first time.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnStart()</code></pre>
+  </div>
+  
+  
+  <a id="DuneNet_Shared_Entities_BaseEntity_OnUpdate_" data-uid="DuneNet.Shared.Entities.BaseEntity.OnUpdate*"></a>
+  <h4 id="DuneNet_Shared_Entities_BaseEntity_OnUpdate" data-uid="DuneNet.Shared.Entities.BaseEntity.OnUpdate">OnUpdate()</h4>
+  <div class="markdown level1 summary"><p>Overridable method called called every frame, if the DuneMonobehaviour is enabled.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnUpdate()</code></pre>
+  </div>
+  
+  
+  <a id="DuneNet_Shared_Entities_BaseEntity_SetParent_" data-uid="DuneNet.Shared.Entities.BaseEntity.SetParent*"></a>
+  <h4 id="DuneNet_Shared_Entities_BaseEntity_SetParent_DuneNet_Shared_Entities_BaseEntity_" data-uid="DuneNet.Shared.Entities.BaseEntity.SetParent(DuneNet.Shared.Entities.BaseEntity)">SetParent(BaseEntity)</h4>
+  <div class="markdown level1 summary"><p>Sets the parent of the entity and sends it to all ready clients.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void SetParent(BaseEntity newParent)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DuneNet.Shared.Entities.BaseEntity.html">BaseEntity</a></td>
+        <td><span class="parametername">newParent</span></td>
+        <td><p>The entity the parent will be se to.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DuneNet_Shared_Entities_BaseEntity_SetPos_" data-uid="DuneNet.Shared.Entities.BaseEntity.SetPos*"></a>
+  <h4 id="DuneNet_Shared_Entities_BaseEntity_SetPos_Vector3_" data-uid="DuneNet.Shared.Entities.BaseEntity.SetPos(Vector3)">SetPos(Vector3)</h4>
+  <div class="markdown level1 summary"><p>Sets the position of the entity and sends it to all ready clients.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void SetPos(Vector3 position)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Vector3</span></td>
+        <td><span class="parametername">position</span></td>
+        <td><p>The position to set the entity to.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DuneNet_Shared_Entities_BaseEntity_SetRot_" data-uid="DuneNet.Shared.Entities.BaseEntity.SetRot*"></a>
+  <h4 id="DuneNet_Shared_Entities_BaseEntity_SetRot_Quaternion_" data-uid="DuneNet.Shared.Entities.BaseEntity.SetRot(Quaternion)">SetRot(Quaternion)</h4>
+  <div class="markdown level1 summary"><p>Sets the rotation of the entity and sends it to all ready clients.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void SetRot(Quaternion rotation)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Quaternion</span></td>
+        <td><span class="parametername">rotation</span></td>
+        <td><p>The rotation to set the entity to.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DuneNet_Shared_Entities_BaseEntity_Start_" data-uid="DuneNet.Shared.Entities.BaseEntity.Start*"></a>
+  <h4 id="DuneNet_Shared_Entities_BaseEntity_Start" data-uid="DuneNet.Shared.Entities.BaseEntity.Start">Start()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void Start()</code></pre>
+  </div>
+  
+  
+  <a id="DuneNet_Shared_Entities_BaseEntity_Update_" data-uid="DuneNet.Shared.Entities.BaseEntity.Update*"></a>
+  <h4 id="DuneNet_Shared_Entities_BaseEntity_Update" data-uid="DuneNet.Shared.Entities.BaseEntity.Update">Update()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void Update()</code></pre>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span class="footer-text">Copyright © 2018 Dune Interactive.
+          </span></div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

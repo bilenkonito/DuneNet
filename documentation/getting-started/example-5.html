@@ -1,0 +1,288 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Simple synchronized FSM with Events | DuneNet </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Simple synchronized FSM with Events | DuneNet ">
+    <meta name="generator" content="docfx 2.50.0.0">
+    
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../images/logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="simple-synchronized-fsm-with-events">Simple synchronized FSM with Events</h1>
+
+<h2 id="overview">Overview</h2>
+<p>Events are a great way to trigger global actions in your game and they can be used synchronize non-entity dependent information to the clients.<br>In this example, we will use the power of DuneNet&#39;s events to create a simple Finite State Machine (FSM) to keep the game&#39;s round state synchronized between the server and the clients.  </p>
+<p>As always, we will first provide the whole code for the example and then we will explain the important aspects of it.</p>
+<p><em>Assets/Scripts/Shared/RoundState.cs:</em>  </p>
+<pre><code class="lang-csharp">namespace Shared
+{
+    public enum RoundState
+    {
+        OutRound,
+        InRound
+    }
+}
+</code></pre><p><em>Assets/Scripts/Server/Modules/RoundModule.cs:</em>  </p>
+<pre><code class="lang-csharp">using DuneNet.Server;
+using DuneNet.Shared;
+using DuneNet.Shared.Events;
+using Shared;
+
+namespace Server.Modules
+{
+    public class RoundModule : DuneNet.Server.DuneModule
+    {
+        private RoundState _currentState = RoundState.OutRound;
+
+        public RoundState GetCurrentState()
+        {
+            return _currentState;
+        }
+
+        private void NextState()
+        {
+            _currentState = _currentState == RoundState.OutRound ? RoundState.InRound : RoundState.OutRound;
+            EventArguments args = new EventArguments();
+            args.SetVariable(&quot;state&quot;, _currentState);
+            DuneServer.EventController.InvokeEvent(&quot;OnChangeState&quot;, args, true);
+        }
+
+        protected override void OnNetReady(DuneConnection conn)
+        {
+            DuneServer.NetworkController.ForceServerReadiness(conn);
+            if (DuneServer.NetworkController.GetConnectionAmount() &gt; 1 &amp;&amp; _currentState == RoundState.OutRound)
+            {
+                NextState();
+            }
+        }
+
+        protected override void OnNetDisconnected(DuneConnection conn)
+        {
+            if (DuneServer.NetworkController.GetConnectionAmount() &lt; 2)
+            {
+                NextState();
+            }
+        }
+    }
+}
+</code></pre><p><em>Assets/Scripts/Client/Entities/ClientStateController.cs:</em>  </p>
+<pre><code class="lang-csharp">using System;
+using DuneNet.Client;
+using DuneNet.Shared.Enums;
+using DuneNet.Shared.Events;
+using Shared;
+using UnityEngine;
+
+namespace Client
+{
+    public class ClientStateController : DuneNet.Client.DuneMonoBehaviour
+    {
+        private RoundState _currentState;
+
+        [EventReg(&quot;OnChangeState&quot;, NetworkContext.Client, true)]
+        private void OnChangeState(EventArguments args)
+        {
+            _currentState = args.GetVariable&lt;RoundState&gt;(&quot;state&quot;);
+        }
+
+        private void OnGUI()
+        {
+            GUI.Label(new Rect(10, 10, 200, 20), &quot;Current State: &quot; + Enum.GetName(typeof(RoundState), _currentState));
+        }
+    }
+}
+</code></pre><h2 id="roundstatecs">RoundState.cs</h2>
+<p>The first thing we need to do is define an enum that will represent all the possible round states.  </p>
+<pre><code class="lang-csharp">namespace Shared
+{
+    public enum RoundState
+    {
+        OutRound,
+        InRound
+    }
+}
+</code></pre><p>Since this enum will be used by both the server and the client, it is a good idea to declare it inside a shared namespace that both contexts can access.</p>
+<h2 id="roundmodulecs">RoundModule.cs</h2>
+<p>This module takes care of keeping track of the serverside round state and also provides a few methods to work with it.<br>First of all, we define a new class that derives from <a href="../../api/DuneNet.Server.DuneModule.html"><code>DuneModule</code></a>:  </p>
+<pre><code class="lang-csharp">public class RoundModule : DuneNet.Server.DuneModule
+</code></pre><p>The <a href="../../api/DuneNet.Server.DuneModule.html"><code>DuneModule</code></a> class provides many overridable methods that we can use to extend the functionality of DuneNet beyond what the main controllers provide.<br>In our case, we want to override the  <code>OnNetReady(DuneConnection conn)</code> and <code>OnNetDisconnected(DuneConnection conn)</code> methods. The <code>OnNetReady(DuneConnection conn)</code> method is called when a client is set ready, while the <code>OnNetReady(DuneConnection conn)</code> method is called when a client disconnects from the server.  </p>
+<pre><code class="lang-csharp">protected override void OnNetReady(DuneConnection conn)
+{
+    DuneServer.NetworkController.ForceServerReadiness(conn);
+    if (DuneServer.NetworkController.GetConnectionAmount() &gt; 1 &amp;&amp; _currentState == RoundState.OutRound)
+    {
+        NextState();
+    }
+}
+</code></pre><p>First, we use the <code>DuneServer.NetworkController.ForceServerReadiness()</code> method to tell DuneNet that from now on, the readiness of the provided connection will be handled by the server. This prevents the affected client from controlling its readiness state, which is useful to prevent the client from creating unintended behaviour on the server by, for example, changing rapidly between the ready and not ready states.<br>After that, we check that the amount of connections is at least two by using the <code>DuneServer.NetworkController.GetConnectionAmount()</code> method and we also check that the current state is <code>RoundState.OutRound</code>. If the conditions are met, we jump to the next state.  </p>
+<pre><code class="lang-csharp">private void NextState()
+{
+    _currentState = _currentState == RoundState.OutRound ? RoundState.InRound : RoundState.OutRound;
+    EventArguments args = new EventArguments();
+    args.SetVariable(&quot;state&quot;, _currentState);
+    DuneServer.EventController.InvokeEvent(&quot;OnChangeState&quot;, args, true);
+}
+</code></pre><p>In this helper method, first we set the value of <code>_currentState</code> to the next state, which in our case will be the state we currently are not since there are only two possible states.<br>Then, we create a new instance of <a href="../../api/DuneNet.Shared.Events.EventArguments.html"><code>EventArguments</code></a> and we set the variable <code>state</code> inside it to the value of <code>_currentState</code>. The <code>EventArguments</code> class takes care of all the serialization and sanity checking required to propagate all the information of the event.<br>Finally, we invoke the event on both the client and the server by using the overload of <code>DuneServer.EventController.InvokeEvent()</code> that takes the name of the event to invoke, a set of event arguments and a boolean value representing whether the event should be invoked on both the server and all authenticated clients.  </p>
+<pre><code class="lang-csharp">protected override void OnNetDisconnected(DuneConnection conn)
+{
+    if (DuneServer.NetworkController.GetConnectionAmount() &lt; 2)
+    {
+        NextState();
+    }
+}
+</code></pre><p>Here, we make sure to return to the base state by invoking the <code>NextState()</code> method if a client disconnects and the amount of remaining clients is less than two.  </p>
+<p>As a last step, we just need to register the module we have created as in previous examples.  </p>
+<pre><code class="lang-csharp">DuneServer.Use(new RoundModule());
+</code></pre><h2 id="clientstatecontrollercs">ClientStateController.cs</h2>
+<p>This class takes care of keeping track of the client&#39;s round state and also displays a basic GUI label at the top left corner of the screen showing the current state.
+First of all, we define a new class that derives from <a href="../../api/DuneNet.Client.DuneMonoBehaviour.html"><code>DuneMonoBehaviour</code></a>:  </p>
+<pre><code class="lang-csharp">public class ClientStateController : DuneNet.Client.DuneMonoBehaviour
+</code></pre><p>This makes sure that the <code>ClientStateController</code> class can listen for events.  </p>
+<p>The first thing we need to do is declare a method that DuneNet will invoke when the event we define is invoked. This can be any static method declared anywhere or any instance method that is declared inside a <a href="../../api/DuneNet.Client.DuneBehaviour.html"><code>DuneBehaviour</code></a> or <a href="../../api/DuneNet.Client.DuneMonoBehaviour.html"><code>DuneMonoBehaviour</code></a>. The method should only have one argument of type <a href="../../api/DuneNet.Shared.Events.EventArguments.html"><code>EventArguments</code></a>.</p>
+<pre><code class="lang-csharp">private void OnChangeState(EventArguments args)
+{
+    _currentState = args.GetVariable&lt;GameState&gt;(&quot;state&quot;);
+}
+</code></pre><p>Here, we simply assign <code>_currentState</code> the value of the <code>state</code> Event Variable. As with entity Networked Variables and User Messages, we need to provide the generics type of the variable we are trying to retrieve. This type is known beforehand as it is the type of the variable we set when we invoked the event.<br>In order to register the event handler with DuneNet, we attach the <code>EventReg</code> attribute to the method we want DuneNet to call when the event is invoked.  </p>
+<pre><code class="lang-csharp">[EventReg(&quot;OnChangeState&quot;, NetworkContext.Client, true)]
+private void OnChangeState(EventArguments args)
+</code></pre><p>The <code>EventReg</code> attribute takes three arguments in its constructor (the last one is optional and defaults to false): the name of the event we want to listen for, the context the event is valid for (either <code>NetworkContext.Server</code> or <code>NetworkContext.Client</code>) and a boolean value representing whether the event should be called by the other Network Context (server -&gt; client and client -&gt; server).<br>Events that have the <code>networkInvoked</code> parameter set to false will only be invoked on the same Network Context they were registered on (server -&gt; server and client -&gt; client), while those that have the <code>networkInvoked</code> parameter set to true will also be invoked on the other Network Context (server -&gt; client and client -&gt; server). Special attention must be paid to which events are to be invoked over the network and which are not, as a malicious client could abuse wrongly handled networked events to cause unintended behaviours on the server.</p>
+<p>Finally, we want to display the current state on the screen so we implement the <code>OnGUI()</code> method. This is a method inherited from <code>MonoBehaviour</code> but since <a href="../../api/DuneNet.Client.DuneMonoBehaviour.html"><code>DuneMonoBehaviour</code></a> works exactly the same as a <code>MonoBehaviour</code> except for the fact that it can work with DuneNet events, we can easily use this method to display element son the screen.  </p>
+<pre><code class="lang-csharp">private void OnGUI()
+{
+    GUI.Label(new Rect(10, 10, 200, 20), &quot;Current State: &quot; + Enum.GetName(typeof(RoundState), _currentState));
+}
+</code></pre><p>Here, we display a label on the top left corner of the screen displaying the name of the round state we currently are in. Since <code>RoundState</code> is an enum, we can simply use <code>Enum.GetName()</code> to get the name of the current value of <code>_currentState</code>.</p>
+<h2 id="using-the-fsm">Using the FSM</h2>
+<p>Right now, the round state should properly be synchronized between the server and the clients and it should transition between states when enough players are ready or not enough clients are connected anymore.<br>However, this isn&#39;t of much utility on its own, so lets use it for something useful.  </p>
+<p>In order to accomplish this, we will modify the <code>WelcomeEntitySpawner</code> module from the <a href="example-4.html">previous example</a>.  </p>
+<pre><code class="lang-csharp">using DuneNet.Server;
+using DuneNet.Shared;
+using DuneNet.Shared.Enums;
+using DuneNet.Shared.Events;
+using Shared;
+
+namespace Server.Modules
+{
+    public class WelcomeEntitySpawner : DuneNet.Server.DuneModule
+    {
+        [EventReg(&quot;OnChangeState&quot;, NetworkContext.Server)]
+        private void OnChangeState(EventArguments args)
+        {
+            switch (args.GetVariable&lt;RoundState&gt;(&quot;state&quot;))
+            {
+                case RoundState.InRound:
+                    DuneServer.NetworkController.ForEachConnection(conn =&gt;
+                    {
+                        DuneServer.EntityController.SpawnEntity(&quot;awesome_sphere&quot;, conn);
+                    });
+                    break;
+                case RoundState.OutRound:
+                    DuneServer.EntityController.DestroyAllEntities();
+                    break;
+            }
+        }
+    }
+}
+</code></pre><p>First, we declare a new method and attach a serverside <code>EventReg</code> attribute to it. This way, the method will be called on the server at the same time as the on the clients (keep latency in consideration for time sensitive operations) when we invoke the event.  </p>
+<pre><code class="lang-csharp">[EventReg(&quot;OnChangeState&quot;, NetworkContext.Server)]
+private void OnChangeState(EventArguments args)
+</code></pre><p>After that, if the new state is <code>RoundState.InRound</code>, we use the <code>DuneServer.NetworkController.ForEachConnection()</code> method to spawn an entity of type <a href="example-4.html"><code>awesome_sphere</code></a> for each of the clients. Each client will have authority over its own entity.<br>If the new state is, instead, <code>RoundState.OutRound</code>, we destroy all the spawned entities from the scene, which will also destroy them for all the ready clients.</p>
+<h2 id="whats-next">What&#39;s next?</h2>
+<p>This concludes the <em>Getting Started</em> introductory guide to DuneNet. You should now be able to use modules, entities and events to make your game a multiplayer success.<br>However, the journey has not ended yet and there is more functionality available for you to use.<br>Therefore, we recommend that you take a look at the <a href="../api/index.md">Api Reference</a> to learn all how to use DuneNet to its maximum.  </p>
+<p>All the files that we have created in the course of this guide are available inside the <code>Examples</code> folder of the Unitypackage you downloaded from the Asset Store.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span class="footer-text">Copyright © 2018 Dune Interactive.
+          </span></div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>
