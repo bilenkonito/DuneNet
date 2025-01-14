@@ -1,0 +1,86 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "files": [
+            "Client/Client.csproj",
+            "Server/Server.csproj",
+            "Shared/Shared.csproj"
+          ],
+          "exclude": [
+            "**/obj/**",
+            "**/bin/**",
+            "target/**",
+			"**/docs/**"
+          ],
+		  "src": "../"
+        }
+      ],
+      "dest": "api",
+      "disableGitFeatures": false,
+	  "filter": "filterConfig.yml"
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "api/**.yml",
+          "api/index.md"
+        ]
+      },
+      {
+        "files": [
+          "documentation/**.md",
+          "documentation/**/toc.yml",
+          "toc.yml",
+          "*.md"
+        ],
+        "exclude": [
+          "obj/**",
+          "target/**"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "images/**"
+        ],
+        "exclude": [
+          "obj/**",
+          "target/**"
+        ]
+      }
+    ],
+    "overwrite": [
+      {
+        "files": [
+          "apidoc/**.md"
+        ],
+        "exclude": [
+          "obj/**",
+          "target/**"
+        ]
+      }
+    ],
+	"globalMetadata": {
+		"_appTitle": "DuneNet",
+		"_appLogoPath": "images/logo.png",
+		"_appFaviconPath": "images/favicon.ico"
+	},
+    "dest": "../target/docs",
+    "globalMetadataFiles": [],
+    "fileMetadataFiles": [],
+    "template": [
+	  "default",
+	  "templates/dunenet"
+    ],
+    "postProcessors": [],
+    "noLangKeyword": false,
+    "keepFileLink": false,
+    "cleanupCacheHistory": false,
+    "disableGitFeatures": false
+  }
+}

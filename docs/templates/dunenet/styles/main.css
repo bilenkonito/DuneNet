@@ -1,0 +1,62 @@
+body{color:#424242}
+
+.h1 .small,.h1 small,.h2 .small,.h2 small,.h3 .small,.h3 small,.h4 .small,.h4 small,.h5 .small,.h5 small,.h6 .small,.h6 small,h1 .small,h1 small,h2 .small,h2 small,h3 .small,h3 small,h4 .small,h4 small,h5 .small,h5 small,h6 .small,h6 small,
+.h1,.h2,.h3,h1,h2,h3{color: #cc0b0b}
+
+button,
+a {
+    color: #757575;
+    cursor: pointer;
+}
+button:hover,
+button:focus,
+a:hover,
+a:focus {
+    color: #212121;
+    text-decoration: none;
+}
+a.visited {
+    color: #BDBDBD;
+    text-decoration: none;
+}
+a.disable,
+a.disable:hover {
+    text-decoration: none;
+    cursor: default;
+    color: #000000;
+}
+
+.affix > ul > li.active > a,
+.affix > ul > li.active > a:before {
+    color: #757575;
+}
+
+.affix ul > li.active > a,
+.affix ul > li.active > a:before {
+    color: #757575;
+}
+
+.toc .nav > li.active > a {
+    color: #212121;
+}
+
+.toc .nav > li.active > a:hover,
+.toc .nav > li.active > a:focus {
+    color: #666666;
+    margin-left: 5px;
+    display: block;
+    padding: 0;
+}
+
+code{color: #388E3C;background-color: #DCEDC8;border-radius: 8px;}
+
+.navbar-inverse{background-color: #757575;border-color:#BDC3C7;}
+.navbar-inverse .navbar-nav>.active>a,.navbar-inverse .navbar-nav>.active>a:focus,.navbar-inverse .navbar-nav>.active>a:hover{color: #fff;background-color: #212121;}
+.navbar-inverse .navbar-nav>li>a,.navbar-inverse .navbar-text{color: #BDBDBD;font-weight: bold;}
+
+.css .hljs-at_rule,.css .hljs-important,.go .hljs-typename,.haskell .hljs-type,.hljs-keyword,.http .hljs-request,.ini .hljs-setting,.java .hljs-javadoctag,.javascript .hljs-javadoctag,.javascript .hljs-tag,.less .hljs-at_rule,.less .hljs-tag,.nginx .hljs-title,.objectivec .hljs-preprocessor,.php .hljs-phpdoc,.scss .hljs-at_rule,.scss .hljs-important,.scss .hljs-tag,.sql .hljs-built_in,.stylus .hljs-at_rule,.swift .hljs-preprocessor{color: #9C27B0;}
+
+.footer-text {
+    color: #212121;
+    font-weight: bold;
+}

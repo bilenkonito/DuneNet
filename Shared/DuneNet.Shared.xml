@@ -1,0 +1,498 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DuneNet.Shared</name>
+    </assembly>
+    <members>
+        <member name="T:DuneNet.Shared.Controllers.BaseEntityController">
+            <summary>
+            A Base Entity Controller.
+            </summary>
+        </member>
+        <member name="M:DuneNet.Shared.Controllers.BaseEntityController.Dispose">
+            <summary>
+            Disposes the Entity Controller and frees any resources internally used by it.
+            </summary>
+            <remarks>
+            There should be no need to manually call this in most cases as it is already automatically called on application quit.
+            </remarks>
+        </member>
+        <member name="T:DuneNet.Shared.Controllers.BaseEventController">
+            <summary>
+            A Base Event Controller.
+            </summary>
+        </member>
+        <member name="M:DuneNet.Shared.Controllers.BaseEventController.RegisterDynamicEvent(DuneNet.Shared.Events.IEventCompatible)">
+            <summary>
+            Registers an instance of IEventCompatible with the Event Controller.
+            </summary>
+            <remarks>
+            This should never be called manually.
+            </remarks>
+        </member>
+        <member name="M:DuneNet.Shared.Controllers.BaseEventController.Dispose">
+            <summary>
+            Disposes the Event Controller and frees any resources internally used by it.
+            </summary>
+            <remarks>
+            There should be no need to manually call this in most cases as it is already automatically called on application quit.
+            </remarks>
+        </member>
+        <member name="T:DuneNet.Shared.DuneConnection">
+            <summary>
+            A network connection used by DuneNet.
+            </summary>
+        </member>
+        <member name="F:DuneNet.Shared.DuneConnection.IDToken">
+            <summary>
+            The client authentication token.
+            </summary>
+        </member>
+        <member name="F:DuneNet.Shared.DuneConnection.Authenticated">
+            <summary>
+            Whether the client is authenticated. True if the client is authenticated, False otherwise.
+            </summary>
+        </member>
+        <member name="F:DuneNet.Shared.DuneConnection.AuthenticationToken">
+            <summary>
+            The server authentication token
+            </summary>
+        </member>
+        <member name="F:DuneNet.Shared.DuneConnection.LocalReadiness">
+            <summary>
+            Whether the client is allowed to set itself ready. True if the client is allowed, False otherwise.
+            </summary>
+        </member>
+        <member name="T:DuneNet.Shared.DuneLog">
+            <summary>
+            A static wrapper around Unity's Debug class to support log filtering.
+            </summary>
+        </member>
+        <member name="M:DuneNet.Shared.DuneLog.Log(System.String)">
+            <summary>
+              <para>Logs message to the Unity Console.</para>
+            </summary>
+            <param name="message">String or object to be converted to string representation for display.</param>
+        </member>
+        <member name="M:DuneNet.Shared.DuneLog.LogWarning(System.String)">
+            <summary>
+              <para>Logs a warning message to the console.</para>
+            </summary>
+            <param name="message">String or object to be converted to string representation for display.</param>
+        </member>
+        <member name="M:DuneNet.Shared.DuneLog.LogError(System.String)">
+            <summary>
+              <para>Logs an error message to the console.</para>
+            </summary>
+            <param name="message">String or object to be converted to string representation for display.</param>
+        </member>
+        <member name="T:DuneNet.Shared.DuneUpdater">
+            <inheritdoc />
+            <summary>
+            Unitliy MonoBehaviour to provide hooks for other DuneNet elements
+            </summary>
+        </member>
+        <member name="P:DuneNet.Shared.DuneUpdater.Instance">
+            <summary>
+            The Singleton instance.
+            </summary>
+        </member>
+        <member name="F:DuneNet.Shared.DuneUpdater.IsQuitting">
+            <summary>
+            Whether the application is quitting.
+            </summary>
+        </member>
+        <member name="E:DuneNet.Shared.DuneUpdater.OnStart">
+            <summary>
+            Event called when DuneNet initializes.
+            </summary>
+        </member>
+        <member name="E:DuneNet.Shared.DuneUpdater.OnUpdate">
+            <summary>
+            Event called when DuneNet updates.
+            </summary>
+        </member>
+        <member name="E:DuneNet.Shared.DuneUpdater.OnQuit">
+            <summary>
+            Event called when the application quits.
+            </summary>
+        </member>
+        <member name="M:DuneNet.Shared.DuneUpdater.WaitForSecondsAction(System.Single,System.Action)">
+            <summary>
+            Invokes an Action after a provided amount of seconds.
+            </summary>
+            <param name="seconds">The amount of seconds to execute the action after.</param>
+            <param name="callback">The action to execute after the provided time.</param>
+        </member>
+        <member name="T:DuneNet.Shared.Entities.BaseEntity">
+            <inheritdoc />
+            <summary>
+            A base entity.
+            </summary>
+        </member>
+        <member name="F:DuneNet.Shared.Entities.BaseEntity.EntId">
+            <summary>
+            The ID of the entity. Null if the entity is not networked.
+            </summary>
+        </member>
+        <member name="F:DuneNet.Shared.Entities.BaseEntity.EntName">
+            <summary>
+            The registration name of the entity.
+            </summary>
+        </member>
+        <member name="F:DuneNet.Shared.Entities.BaseEntity.EntType">
+            <summary>
+            The reflection type of the entity.
+            </summary>
+        </member>
+        <member name="F:DuneNet.Shared.Entities.BaseEntity.IsEntitySpawned">
+            <summary>
+            Whether the entity has been spawned. True if it has been spawned, False otherwise.
+            </summary>
+        </member>
+        <member name="F:DuneNet.Shared.Entities.BaseEntity.NetUpdateInterval">
+            <summary>
+            The network tickrate of the entity.
+            This is how often (in seconds) the entity is synchronized.
+            By default this is set to 0.030s, which means 33 times per second 
+            </summary>
+        </member>
+        <member name="M:DuneNet.Shared.Entities.BaseEntity.SetPos(UnityEngine.Vector3)">
+            <summary>
+            Sets the position of the entity and sends it to all ready clients.
+            </summary>
+            <param name="position">The position to set the entity to.</param>
+        </member>
+        <member name="M:DuneNet.Shared.Entities.BaseEntity.SetRot(UnityEngine.Quaternion)">
+            <summary>
+            Sets the rotation of the entity and sends it to all ready clients.
+            </summary>
+            <param name="rotation">The rotation to set the entity to.</param>
+        </member>
+        <member name="M:DuneNet.Shared.Entities.BaseEntity.SetParent(DuneNet.Shared.Entities.BaseEntity)">
+            <summary>
+            Sets the parent of the entity and sends it to all ready clients.
+            </summary>
+            <param name="newParent">The entity the parent will be se to.</param>
+        </member>
+        <member name="M:DuneNet.Shared.Entities.BaseEntity.OnAwake">
+            <summary>
+            Overridable method called when the instance is being loaded.
+            </summary>
+        </member>
+        <member name="M:DuneNet.Shared.Entities.BaseEntity.OnStart">
+            <summary>
+            Overridable method called on the frame when the instance is enabled just before any of the Update methods is called the first time.
+            </summary>
+        </member>
+        <member name="M:DuneNet.Shared.Entities.BaseEntity.OnUpdate">
+            <summary>
+            Overridable method called called every frame, if the DuneMonobehaviour is enabled.
+            </summary>
+        </member>
+        <member name="M:DuneNet.Shared.Entities.BaseEntity.OnFixedUpdate">
+            <summary>
+            Overridable method called every fixed framerate frame, if the DuneMonobehaviour is enabled.
+            </summary>
+        </member>
+        <member name="M:DuneNet.Shared.Entities.BaseEntity.OnLateUpdate">
+            <summary>
+            Overridable method called every frame, if the DuneMonobehaviour is enabled.
+            </summary>
+        </member>
+        <member name="M:DuneNet.Shared.Entities.BaseEntity.OnEntitySpawned">
+            <summary>
+            Overridable method called when the entity is spawned.
+            </summary>
+        </member>
+        <member name="M:DuneNet.Shared.Entities.BaseEntity.OnEntityDestroyed">
+            <summary>
+            Overridable method called when the entity is destroyed.
+            </summary>
+        </member>
+        <member name="M:DuneNet.Shared.Entities.BaseEntity.OnSetPos(UnityEngine.Vector3,UnityEngine.Vector3)">
+            <summary>
+            Overridable method called when the entity's position is changed.
+            </summary>
+            <param name="oldPos">The position before the entity was moved.</param>
+            <param name="newPos">The position after the entity has been moved.</param>
+        </member>
+        <member name="M:DuneNet.Shared.Entities.BaseEntity.OnSetRot(UnityEngine.Quaternion,UnityEngine.Quaternion)">
+            <summary>
+            Overridable method called when the entity's rotation is changed.
+            </summary>
+            <param name="oldRot">The rotation before the entity was moved.</param>
+            <param name="newRot">The rotation after the entity has been moved.</param>
+        </member>
+        <member name="M:DuneNet.Shared.Entities.BaseEntity.OnSetParent(DuneNet.Shared.Entities.BaseEntity)">
+            <summary>
+            Overridable method called when the entity's parent is changed.
+            </summary>
+            <param name="newParent">The new parent of the entity.</param>
+        </member>
+        <member name="T:DuneNet.Shared.Entities.EntityRegAttribute">
+            <inheritdoc />
+            <summary>
+            An Attribute used to describe entities. This should be used to register new entities by adding attaching it to an entity's class.
+            </summary>
+        </member>
+        <member name="P:DuneNet.Shared.Entities.EntityRegAttribute.Name">
+            <summary>
+            The registration name of the entity.
+            </summary>
+        </member>
+        <member name="P:DuneNet.Shared.Entities.EntityRegAttribute.PrefabPath">
+            <summary>
+            The relative path to the prefab of the entity.
+            </summary>
+            <remarks>
+            The path starts inside the Resources folder once it has been mounted by Unity and should not contain the extension.
+            If using Asset Bundles, this should be the path to the prefab inside the Asset Bundle instead.
+            <example>entities/server/test_entity</example>
+            </remarks>
+        </member>
+        <member name="P:DuneNet.Shared.Entities.EntityRegAttribute.Context">
+            <summary>
+            The network context the entity will be used on.
+            </summary>
+            <remarks>
+            Servers cannot spawn client entities and vice versa.
+            </remarks>
+        </member>
+        <member name="P:DuneNet.Shared.Entities.EntityRegAttribute.AssetBundle">
+            <summary>
+            The name of the Asset Bundle where the entity prefab is stored
+            </summary>
+            <remarks>
+            If this is null or empty, the entity prefab is loaded from the Resources folder.
+            </remarks>
+        </member>
+        <member name="M:DuneNet.Shared.Entities.EntityRegAttribute.#ctor(System.String,System.String,DuneNet.Shared.Enums.NetworkContext,System.String)">
+            <inheritdoc />
+            <summary>
+            Constructor.
+            </summary>
+            <param name="name">The registration name of the entity.</param>
+            <param name="prefabPath">
+            The relative path to the prefab of the entity.
+            The path starts inside the Resources folder once it has been mounted by Unity and should not contain the extension.
+            <example>entities/server/test_entity</example>
+            </param>
+            <param name="context">The network context the entity will be used on.
+            Servers cannot spawn client entities and vice versa.</param>
+        </member>
+        <member name="T:DuneNet.Shared.Entities.EntityInfo">
+            <summary>
+            A struct representing the registration information of an entity.
+            </summary>
+        </member>
+        <member name="F:DuneNet.Shared.Entities.EntityInfo.EntType">
+            <summary>
+            The reflection type of the entity
+            </summary>
+        </member>
+        <member name="F:DuneNet.Shared.Entities.EntityInfo.EntObject">
+            <summary>
+            The GameObject of the entity.
+            </summary>
+            <remarks>
+            This is an out of scene GameObject reference, similar to prefab references inside the Editor.
+            </remarks>
+        </member>
+        <member name="F:DuneNet.Shared.Entities.EntityInfo.EntAssetBundleName">
+            <summary>
+            The name of the asset bundle the entity is contained in.
+            </summary>
+            <remarks>
+            This is null if the entity is a Resources based entity.
+            </remarks>
+        </member>
+        <member name="T:DuneNet.Shared.Entities.NetworkedVariable">
+            <summary>
+            A networked variable.
+            </summary>
+        </member>
+        <member name="F:DuneNet.Shared.Entities.NetworkedVariable.Value">
+            <summary>
+            The value of the networked variable.
+            </summary>
+        </member>
+        <member name="F:DuneNet.Shared.Entities.NetworkedVariable.DirtyBit">
+            <summary>
+            Whether the networked variable has changed since the last synchronization. True if the networked variable has changed, False otherwise.
+            </summary>
+        </member>
+        <member name="T:DuneNet.Shared.Enums.NetworkContext">
+            <summary>
+            An enum representing a network context.
+            </summary>
+        </member>
+        <member name="T:DuneNet.Shared.Events.EventRegAttribute">
+            <inheritdoc />
+            <summary>
+            An Attribute used to describe events. This should be used to register new events by adding attaching it to an event's handler method.
+            </summary>
+        </member>
+        <member name="P:DuneNet.Shared.Events.EventRegAttribute.Name">
+            <summary>
+            The name of the event.
+            </summary>
+        </member>
+        <member name="P:DuneNet.Shared.Events.EventRegAttribute.Context">
+            <summary>
+            The network context the event will be registered on.
+            </summary>
+            <remarks>
+            Server events are not registered on the client and vice versa.
+            </remarks>
+        </member>
+        <member name="P:DuneNet.Shared.Events.EventRegAttribute.NetworkInvoked">
+            <summary>
+            Whether the event should be invoked over the network. 
+            </summary>
+            <remarks>
+            If true, the event will be invoked on the clients when it is invoked on the client with invokeOnClient set to ture and on the server when it is invoked on a client with invokeOnServer set to true.
+            Otherwise, the event is only invoked on the network context it was registered on.
+            </remarks>
+        </member>
+        <member name="M:DuneNet.Shared.Events.EventRegAttribute.#ctor(System.String,DuneNet.Shared.Enums.NetworkContext,System.Boolean)">
+            <inheritdoc />
+            <summary>
+            Constructor.
+            </summary>
+            <param name="name">The name of the event.</param>
+            <param name="context">The network context the event will be registered on.</param>
+            <param name="networkInvoked">Whether the event should be invoked over the network.</param>
+        </member>
+        <member name="M:DuneNet.Shared.Events.IEventCompatible.RegisterEventInstance">
+            <summary>
+            Registers the instance with the EventController.
+            </summary>
+            <remarks>
+            This should never be called manually.
+            </remarks>
+        </member>
+        <member name="T:DuneNet.Shared.Events.EventArguments">
+            <summary>
+            The arguments of an event.
+            </summary>
+        </member>
+        <member name="M:DuneNet.Shared.Events.EventArguments.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:DuneNet.Shared.Events.EventArguments.#ctor(System.Collections.Generic.Dictionary{System.String,System.Byte[]})">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="rawArguments">A dictionary containing the raw variables to include in the arguments.</param>
+        </member>
+        <member name="M:DuneNet.Shared.Events.EventArguments.#ctor(System.Collections.Generic.KeyValuePair{System.String,System.Object}[])">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="arguments">
+            A range of arguments to be added.
+            This is equivalent to constructing the object with the parameterless constructor and then using SetVariable(string varName, object varValue) for each argument.
+            </param>
+        </member>
+        <member name="M:DuneNet.Shared.Events.EventArguments.GetVariable``1(System.String,System.Runtime.Serialization.SerializationBinder)">
+            <summary>
+            Returns the specified argument variable's value.
+            </summary>
+            <param name="varName">The name of the variable to retrieve.</param>
+            <param name="binder">An optional serialization binder to handle the variable deserialization.</param>
+            <typeparam name="T">The type of the variable to retrieve. It must flagged as Serializable.</typeparam>
+            <returns>An instance of type T representing the value of the variable. If the variable does not exist, the default value of T is returned instead.</returns>
+        </member>
+        <member name="M:DuneNet.Shared.Events.EventArguments.SetVariable(System.String,System.Object)">
+            <summary>
+            Sets specified variable's value.
+            </summary>
+            <param name="varName">The name of the variable to set.</param>
+            <param name="varValue">The value to set the variable to.</param>
+        </member>
+        <member name="M:DuneNet.Shared.Events.EventArguments.GetRawData">
+            <summary>
+            returns the raw variables of the arguments
+            </summary>
+            <remarks>
+            Used for display and debug purposes. For normal operation, use SetVeriable and GetVariable.
+            </remarks>
+            <returns>A Dictionary containing the raw variables of the arguments.</returns>
+        </member>
+        <member name="T:DuneNet.Shared.Messages.MessageChannels">
+            <summary>
+            A static class representing the basic channels that both Network Controllers always have. 
+            </summary>
+        </member>
+        <member name="F:DuneNet.Shared.Messages.MessageChannels.GeneralReliableSequenced">
+            <summary>
+            Used for general messages that require reliability and order.
+            </summary>
+        </member>
+        <member name="F:DuneNet.Shared.Messages.MessageChannels.GeneralUnreliable">
+            <summary>
+            Used for general messages that require fast transmission and no reliability.
+            </summary>
+        </member>
+        <member name="F:DuneNet.Shared.Messages.MessageChannels.PositionAndRotationUnreliable">
+            <summary>
+            Used to synchronize entity positions and rotations. Unreliable
+            </summary>
+        </member>
+        <member name="F:DuneNet.Shared.Messages.MessageChannels.EntityDataReliableSequenced">
+            <summary>
+            Used to synchronize entity Networked Variables and User Messages. Reliable sequenced.
+            </summary>
+        </member>
+        <member name="T:DuneNet.Shared.Messages.MsgTypes">
+            <inheritdoc />
+            <summary>
+            A class representing all the message types used by DuneNet.
+            </summary>
+        </member>
+        <member name="T:DuneNet.Shared.Messages.SharedAuthorityMessage">
+            <inheritdoc />
+            <summary>
+            A network message that supports authority.
+            </summary>
+        </member>
+        <member name="T:DuneNet.Shared.Modules.HandshakeRequest">
+            <summary>
+            A Handshake Request used to authenticate clients.
+            </summary>
+        </member>
+        <member name="F:DuneNet.Shared.Modules.HandshakeRequest.IDToken">
+            <summary>
+            The client authentication token.
+            </summary>
+        </member>
+        <member name="F:DuneNet.Shared.Modules.HandshakeRequest.Secret">
+            <summary>
+            The client authentication secret.
+            </summary>
+        </member>
+        <member name="T:DuneNet.Shared.Modules.HandshakeResponse">
+            <summary>
+            A Handshake Eesponse used to authenticate clients.
+            </summary>
+        </member>
+        <member name="F:DuneNet.Shared.Modules.HandshakeResponse.AuthenticationToken">
+            <summary>
+            The server authentication token
+            </summary>
+        </member>
+        <member name="F:DuneNet.Shared.Modules.HandshakeResponse.Allowed">
+            <summary>
+            Whether the client was successfully authenticated. True if the client successfully authenticated, False otherwise.
+            </summary>
+        </member>
+        <member name="F:DuneNet.Shared.Modules.HandshakeResponse.Error">
+            <summary>
+            The server authentication error. Only populated if the authentication attempt was rejected.
+            </summary>
+        </member>
+    </members>
+</doc>

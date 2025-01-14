@@ -1,0 +1,13 @@
+.idea/.idea.dunenet/.idea/workspace.xml
+Client/obj/
+Server/obj/
+Shared/obj/
+Editor.Server/obj/
+Editor.Client/obj/
+Editor.Shared/obj/
+target/
+docs/_exported_templates/
+obj/
+docs/api/
+!docs/api/index.md
+docs/.idea/workspace.xml
